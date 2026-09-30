@@ -33,10 +33,11 @@ export default function Hero() {
       />
 
       <motion.div style={{ opacity: fade }} className="relative z-10 max-w-[1400px] mx-auto w-full px-6 md:px-10 pb-16 md:pb-20">
+        {/* Entrada só com deslocamento, sem opacity 0: conteúdo visível desde o 1º quadro (LCP) */}
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 0.3 }}
+          initial={{ y: 10 }}
+          animate={{ y: 0 }}
+          transition={{ duration: 1, ease: EASE }}
           className="eyebrow text-bege-claro mb-6"
         >
           Endocrinologia &amp; Metabologia · São Paulo
@@ -44,23 +45,22 @@ export default function Hero() {
         <LineReveal
           as="h1"
           immediate
-          delay={0.35}
           lines={['Muito além', 'da balança']}
           className="uppercase text-display max-w-4xl mb-8"
         />
         <div className="flex flex-col md:flex-row md:items-end gap-8 md:gap-16">
           <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.8, ease: EASE }}
+            initial={{ y: 16 }}
+            animate={{ y: 0 }}
+            transition={{ duration: 1, delay: 0.1, ease: EASE }}
             className="text-base md:text-lg font-light max-w-md text-white/85 leading-relaxed"
           >
             Tratamento individualizado da obesidade, do metabolismo e da saúde hormonal.
           </motion.p>
           <MotionLink
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.95, ease: EASE }}
+            initial={{ y: 16 }}
+            animate={{ y: 0 }}
+            transition={{ duration: 1, delay: 0.2, ease: EASE }}
             to="/contato/"
             className="self-start md:self-auto inline-block rounded-full bg-white text-verde-escuro px-9 py-4 text-[12px] font-semibold uppercase tracking-[0.16em] transition-all hover:bg-creme hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
           >

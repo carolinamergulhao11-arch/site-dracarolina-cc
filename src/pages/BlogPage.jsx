@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import Seo from '../components/Seo'
@@ -34,6 +35,10 @@ export default function BlogPage() {
   const lista = categoria ? POSTS.filter(p => p.category === categoria) : POSTS
   const [destaque, ...demais] = lista
 
+  // Sem fade no 1º carregamento (a arte em destaque é o LCP); só ao trocar de categoria.
+  const primeiraVez = useRef(true)
+  useEffect(() => { primeiraVez.current = false }, [])
+
   return (
     <>
       <Seo title={SEO.blog.title} />
@@ -61,13 +66,13 @@ export default function BlogPage() {
 
           <motion.div
             key={categoria ?? 'todos'}
-            initial={{ opacity: 0, y: 16 }}
+            initial={primeiraVez.current ? false : { opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           >
             <Link to={`/blog/${destaque.slug}/`} className="group grid md:grid-cols-12 gap-8 md:gap-12 items-center mb-16 md:mb-24">
               <div className="md:col-span-7 overflow-hidden">
-                <img src={destaque.image} alt={destaque.title} className={`w-full aspect-video object-cover ${ZOOM}`} />
+                <img src={destaque.image} alt={destaque.title} fetchPriority="high" className={`w-full aspect-video object-cover ${ZOOM}`} />
               </div>
               <div className="md:col-span-5">
                 <div className="eyebrow text-verde-oliva mb-4">{destaque.category}</div>
