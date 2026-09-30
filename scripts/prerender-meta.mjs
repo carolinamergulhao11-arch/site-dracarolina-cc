@@ -9,8 +9,10 @@ import { SEO, MARCA, tituloDoPost } from '../src/data/seo.js'
 const SITE = 'https://dracarolinamergulhao.com.br'
 const SITE_NAME = MARCA
 const HERO = '/assets/images/dra-carolina-mergulhao-hero-sorrindo-varanda.webp'
-// Recorte 1200x630 para prévia de link (a foto do hero é vertical e sairia cortada)
+// Recorte 1200x630 da foto do hero (vertical), usado como imagem da Dra. no schema Physician
 const OG_IMAGE = '/assets/images/og/dra-carolina-mergulhao-og.jpg'
+// Cartão da marca para prévia de link (fonte em _originais/og/og-fonte.html)
+const OG_CARD = '/assets/images/og/og-dra-carolina-mergulhao.jpg'
 const INSTAGRAM = 'https://www.instagram.com/dracarolinamergulhao/'
 const DIST = 'dist'
 
@@ -121,7 +123,7 @@ const routes = [
     block: seoBlock({
       ...SEO.home,
       path: '/',
-      image: OG_IMAGE,
+      image: OG_CARD,
       type: 'website',
       preload: HERO,
       jsonLd: [physician, faqPage],
@@ -133,7 +135,7 @@ const routes = [
     block: seoBlock({
       ...SEO.blog,
       path: '/blog/',
-      image: POSTS[0].image,
+      image: OG_CARD,
       preload: POSTS[0].image,
       // Mesmo srcset/sizes do destaque em BlogPage.jsx, para o preload baixar o arquivo que será usado
       preloadSrcset: srcsetArte(POSTS[0].image),
@@ -161,7 +163,7 @@ const routes = [
     block: seoBlock({
       ...SEO.contato,
       path: '/contato/',
-      image: OG_IMAGE,
+      image: OG_CARD,
       type: 'website',
       jsonLd: [{
         '@context': 'https://schema.org',
