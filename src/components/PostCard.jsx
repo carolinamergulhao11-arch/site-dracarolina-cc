@@ -1,0 +1,18 @@
+import { Link } from 'react-router-dom'
+
+export const ZOOM = 'transition-transform duration-[1.2s] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-105'
+
+export default function PostCard({ post }) {
+  return (
+    <Link to={`/blog/${post.slug}/`} className="group block">
+      <div className="overflow-hidden mb-6">
+        <img src={post.image} alt={post.title} loading="lazy" className={`w-full aspect-video object-cover ${ZOOM}`} />
+      </div>
+      <div className="eyebrow text-[0.62rem] text-verde-oliva mb-3">{post.category}</div>
+      <h3 className="text-lg leading-snug text-verde-escuro mb-3 group-hover:text-verde-oliva transition-colors">
+        {post.title}
+      </h3>
+      <p className="text-[15px] leading-relaxed text-verde-escuro/65">{post.excerpt}</p>
+    </Link>
+  )
+}
