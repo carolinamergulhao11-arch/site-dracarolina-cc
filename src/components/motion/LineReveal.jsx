@@ -13,7 +13,8 @@ export default function LineReveal({ lines, as = 'h2', className = '', delay = 0
   return (
     <Tag className={className}>
       {lines.map((line, i) => (
-        <span key={i} className="block overflow-hidden pb-[0.06em]">
+        // Folga no topo para acentos de maiúsculas (Ã, É, Ê) não serem cortados pela máscara
+        <span key={i} className="block overflow-hidden pt-[0.18em] -mt-[0.18em] pb-[0.06em]">
           <motion.span
             className="block"
             initial={{ y: '105%' }}
