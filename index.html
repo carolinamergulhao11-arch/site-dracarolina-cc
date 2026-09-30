@@ -3,26 +3,35 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dra. Carolina Mergulhão</title>
-<style>
-  body {
-    margin: 0;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-family: system-ui, sans-serif;
-    background: #fafafa;
-    color: #222;
-    text-align: center;
-  }
-  h1 { font-size: 1.8rem; margin-bottom: 0.5rem; }
-  p { color: #666; }
-</style>
+<!--seo: bloco reescrito por página em scripts/prerender-meta.mjs no build-->
+<title>Dra. Carolina Mergulhão | Endocrinologista e Metabologista em São Paulo</title>
+<meta name="description" content="Endocrinologista e metabologista em São Paulo especializada em emagrecimento, obesidade e saúde hormonal. Tratamento individualizado, muito além da balança. CRM-SP 137.944.">
+<!--/seo-->
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#24403A">
+<link rel="icon" href="/assets/logos/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poiret+One&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
-<h1>Dra. Carolina Mergulhão</h1>
-<p>Site em construção.</p>
+<script>
+  var redirect = sessionStorage.getItem('redirect');
+  if (redirect) {
+    sessionStorage.removeItem('redirect');
+    if (redirect !== window.location.pathname + window.location.search + window.location.hash) {
+      history.replaceState(null, '', redirect);
+    }
+  }
+  // Anti-spam SEO: descarta parâmetros usados em ataques de URL (depois de restaurar a rota do 404)
+  (function () {
+    var blocked = ['r', 'mod', 'uri', 'elementor_library', 'et_core_page_resource'];
+    var params = new URLSearchParams(window.location.search);
+    var dirty = blocked.some(function (p) { return params.has(p); });
+    if (dirty) { window.location.replace(window.location.pathname); }
+  })();
+</script>
+<div id="root"></div>
+<script type="module" src="/src/main.jsx"></script>
 </body>
 </html>

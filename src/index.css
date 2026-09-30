@@ -1,0 +1,57 @@
+@import "tailwindcss";
+@import "lenis/dist/lenis.css";
+
+@theme {
+  --font-serif: 'Poiret One', sans-serif;
+  --font-sans: 'Montserrat', sans-serif;
+
+  --color-verde-escuro: #24403A;
+  --color-verde-oliva: #5C6547;
+  --color-bege-claro: #D4B896;
+  --color-bege-claro-2: #EBE0B8;
+  --color-creme: #FEF5D3;
+  --color-off: #FAF8F3;
+  --color-areia: #F1EBDF;
+
+  --text-display: clamp(2.75rem, 7vw, 7rem);
+  --text-display--line-height: 1.02;
+  --text-section: clamp(2.25rem, 4.6vw, 4.5rem);
+  --text-section--line-height: 1.06;
+}
+
+@utility eyebrow {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-weight: 300;
+  color: var(--color-verde-escuro);
+  background: var(--color-off);
+  -webkit-font-smoothing: antialiased;
+}
+
+@layer base {
+  h1, h2 {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    letter-spacing: 0.04em;
+  }
+
+  h3 {
+    font-weight: 500;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}

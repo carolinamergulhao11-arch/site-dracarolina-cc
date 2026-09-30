@@ -1,0 +1,8 @@
+.env
+node_modules/
+dist/
+_originais/
+.DS_Store
+.claude/
+_legacy-static/
+scripts/*.sh
