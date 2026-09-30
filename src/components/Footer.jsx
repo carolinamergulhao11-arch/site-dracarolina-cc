@@ -23,7 +23,7 @@ export default function Footer() {
         </p>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 pt-12 border-t border-creme/15 mb-16">
-          <img src="/assets/logos/logo-vertical-white.png" alt="Dra. Carolina Mergulhão" width={1874} height={855} loading="lazy" className="h-24 w-auto" />
+          <img src="/assets/logos/logo-vertical-white.webp" alt="Dra. Carolina Mergulhão" width={420} height={192} loading="lazy" className="h-24 w-auto" />
 
           <div>
             <div className="eyebrow text-bege-claro mb-5">Navegação</div>

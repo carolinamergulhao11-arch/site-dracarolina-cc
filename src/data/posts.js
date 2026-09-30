@@ -186,6 +186,9 @@ export const POSTS = [
   },
 ]
 
+// Cada arte tem uma versão de 640px (miniaturas) ao lado da original de 1734px.
+export const srcsetArte = (src) => `${src.replace(/\.webp$/, '-640.webp')} 640w, ${src} 1734w`
+
 export function getPostBySlug(slug) {
   return POSTS.find((p) => p.slug === slug)
 }

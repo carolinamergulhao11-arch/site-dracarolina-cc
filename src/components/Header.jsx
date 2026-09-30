@@ -47,10 +47,10 @@ export default function Header() {
       <nav className="max-w-[1400px] mx-auto flex items-center justify-between px-6 md:px-10 py-3">
         <Link to="/" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="transition-transform duration-200 hover:scale-[1.03]">
           <img
-            src="/assets/logos/logo-horizontal.png"
+            src="/assets/logos/logo-horizontal.webp"
             alt="Dra. Carolina Mergulhão"
-            width={2063}
-            height={398}
+            width={560}
+            height={109}
             className={`h-11 md:h-12 w-auto transition-[filter] duration-500 ${light ? 'brightness-0 invert' : ''}`}
           />
         </Link>
