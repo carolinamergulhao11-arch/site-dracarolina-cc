@@ -111,6 +111,7 @@ const routes = [
       ...SEO.blog,
       path: '/blog/',
       image: POSTS[0].image,
+      preload: POSTS[0].image,
       type: 'website',
       jsonLd: [{
         '@context': 'https://schema.org',
