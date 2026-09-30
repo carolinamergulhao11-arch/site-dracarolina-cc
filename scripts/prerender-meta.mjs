@@ -1,7 +1,7 @@
 // Roda depois do `vite build`: gera um HTML por rota com title/meta/OG/JSON-LD estáticos,
 // para que crawlers sem JS (WhatsApp, Facebook) e o Google recebam status 200 e metadados certos.
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs'
-import { POSTS } from '../src/data/posts.js'
+import { POSTS, srcsetArte } from '../src/data/posts.js'
 import { PERGUNTAS } from '../src/data/faq.js'
 import { SEO, MARCA, tituloDoPost } from '../src/data/seo.js'
 
@@ -29,7 +29,7 @@ function jpegSize(file) {
 }
 const ld = (obj) => `<script type="application/ld+json">${JSON.stringify(obj).replace(/</g, '\\u003c')}</script>`
 
-function seoBlock({ title, description, path, image, type, jsonLd = [], preload }) {
+function seoBlock({ title, description, path, image, type, jsonLd = [], preload, preloadSrcset, preloadSizes }) {
   const url = SITE + path
   const img = ogImage(image)
   const { width, height } = jpegSize(DIST + img.slice(SITE.length))
@@ -50,7 +50,9 @@ function seoBlock({ title, description, path, image, type, jsonLd = [], preload 
     `<meta name="twitter:title" content="${esc(title)}">`,
     `<meta name="twitter:description" content="${esc(description)}">`,
     `<meta name="twitter:image" content="${img}">`,
-    preload ? `<link rel="preload" as="image" href="${preload}" fetchpriority="high">` : '',
+    preload
+      ? `<link rel="preload" as="image" href="${preload}"${preloadSrcset ? ` imagesrcset="${preloadSrcset}" imagesizes="${preloadSizes}"` : ''} fetchpriority="high">`
+      : '',
     ...jsonLd.map(ld),
   ].filter(Boolean).join('\n')
 }
@@ -112,6 +114,9 @@ const routes = [
       path: '/blog/',
       image: POSTS[0].image,
       preload: POSTS[0].image,
+      // Mesmo srcset/sizes do destaque em BlogPage.jsx, para o preload baixar o arquivo que será usado
+      preloadSrcset: srcsetArte(POSTS[0].image),
+      preloadSizes: '(min-width: 768px) 58vw, 100vw',
       type: 'website',
       jsonLd: [{
         '@context': 'https://schema.org',

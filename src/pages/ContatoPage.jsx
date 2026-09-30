@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import Seo from '../components/Seo'
 import { SEO } from '../data/seo'
 import Header from '../components/Header'
@@ -82,6 +83,54 @@ function Formulario() {
   )
 }
 
+// O iframe do Google Maps dispara ~17 requisições externas; só carrega quando a pessoa pede.
+function Mapa() {
+  const [ativo, setAtivo] = useState(false)
+  const altura = 'w-full h-[360px] md:h-[440px]'
+
+  if (ativo) {
+    return (
+      <iframe
+        title="Localização do consultório"
+        src={MAPA_EMBED}
+        referrerPolicy="no-referrer-when-downgrade"
+        className={`${altura} border-0`}
+      />
+    )
+  }
+
+  return (
+    <div className={`${altura} bg-verde-escuro text-creme flex flex-col items-center justify-center gap-6 px-6 text-center`}>
+      <svg viewBox="0 0 24 24" className="w-9 h-9 text-bege-claro" fill="none" stroke="currentColor" strokeWidth="1.4" aria-hidden="true">
+        <path d="M12 21s-7-6.2-7-11.5a7 7 0 0114 0C19 14.8 12 21 12 21z" />
+        <circle cx="12" cy="9.5" r="2.5" />
+      </svg>
+      <p className="leading-relaxed text-creme/85">
+        {ENDERECO.linha1}
+        <br />
+        {ENDERECO.linha2}
+      </p>
+      <div className="flex flex-col sm:flex-row gap-3">
+        <button
+          type="button"
+          onClick={() => setAtivo(true)}
+          className="rounded-full bg-creme text-verde-escuro px-8 py-3.5 text-[12px] font-semibold uppercase tracking-[0.16em] transition-colors hover:bg-white"
+        >
+          Ver mapa aqui
+        </button>
+        <a
+          href={MAPA_URL}
+          target="_blank"
+          rel="noopener"
+          className="rounded-full border border-creme/50 px-8 py-3.5 text-[12px] font-semibold uppercase tracking-[0.16em] transition-colors hover:bg-creme hover:text-verde-escuro"
+        >
+          Abrir no Google Maps
+        </a>
+      </div>
+    </div>
+  )
+}
+
 export default function ContatoPage() {
   return (
     <>
@@ -141,13 +190,7 @@ export default function ContatoPage() {
         </div>
 
         <div className="max-w-[1400px] mx-auto px-6 md:px-10 pt-24 md:pt-32 pb-28 md:pb-40">
-          <iframe
-            title="Localização do consultório"
-            src={MAPA_EMBED}
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-            className="w-full h-[360px] md:h-[440px] border-0 grayscale-[0.85] hover:grayscale-0 transition-[filter] duration-700"
-          />
+          <Mapa />
         </div>
       </main>
       <Footer />
