@@ -18,6 +18,7 @@ import Footer from './components/Footer'
 import PostPage from './pages/PostPage'
 import BlogPage from './pages/BlogPage'
 import ContatoPage from './pages/ContatoPage'
+import NotFoundPage from './pages/NotFoundPage'
 
 function Home() {
   // Chegando de outra página em /#secao, o navegador tenta rolar antes do React montar a seção.
@@ -60,6 +61,7 @@ export default function App() {
       <Route path="/blog/" element={<BlogPage />} />
       <Route path="/blog/:slug" element={<PostPage />} />
       <Route path="/contato/" element={<ContatoPage />} />
+      <Route path="*" element={<NotFoundPage />} />
     </Routes>
   )
 }
