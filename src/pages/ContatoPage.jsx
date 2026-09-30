@@ -153,7 +153,7 @@ export default function ContatoPage() {
                   <br />
                   {ENDERECO.linha2}, CEP {ENDERECO.cep}
                   <br />
-                  <a href={MAPA_URL} target="_blank" rel="noopener" className="inline-block mt-2 text-sm underline underline-offset-4 decoration-verde-escuro/30 hover:decoration-verde-escuro">
+                  <a href={MAPA_URL} target="_blank" rel="noopener" className="inline-block mt-2 py-2 -my-2 text-sm underline underline-offset-4 decoration-verde-escuro/30 hover:decoration-verde-escuro">
                     Ver no mapa ↗
                   </a>
                 </dd>
@@ -169,7 +169,7 @@ export default function ContatoPage() {
               <div>
                 <dt className="eyebrow text-verde-oliva mb-2.5">Instagram</dt>
                 <dd>
-                  <a href={INSTAGRAM_URL} target="_blank" rel="noopener" className="hover:text-verde-oliva transition-colors">
+                  <a href={INSTAGRAM_URL} target="_blank" rel="noopener" className="inline-block py-2 -my-2 hover:text-verde-oliva transition-colors">
                     @dracarolinamergulhao
                   </a>
                 </dd>

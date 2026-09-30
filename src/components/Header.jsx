@@ -94,7 +94,7 @@ export default function Header() {
           )}
         </AnimatePresence>
         <div className="flex items-center gap-4 md:gap-6">
-          <a href={INSTAGRAM_URL} target="_blank" rel="noopener" aria-label="Instagram da Dra. Carolina Mergulhão" className="transition-opacity hover:opacity-70">
+          <a href={INSTAGRAM_URL} target="_blank" rel="noopener" aria-label="Instagram da Dra. Carolina Mergulhão" className="p-3 -m-3 transition-opacity hover:opacity-70">
             <svg viewBox="0 0 24 24" className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
               <rect x="3" y="3" width="18" height="18" rx="5" />
               <circle cx="12" cy="12" r="4" />
@@ -110,7 +110,7 @@ export default function Header() {
             Agendar consulta
           </Link>
           <button
-            className="lg:hidden relative w-7 h-7"
+            className="lg:hidden relative w-11 h-11 -mr-2"
             aria-label={open ? 'Fechar menu' : 'Abrir menu'}
             aria-expanded={open}
             onClick={() => setOpen(o => !o)}
@@ -118,17 +118,17 @@ export default function Header() {
             <motion.span
               animate={{ rotate: open ? 45 : 0, y: open ? 0 : -6 }}
               transition={{ duration: 0.25 }}
-              className="absolute left-0 top-1/2 w-7 h-px bg-current origin-center"
+              className="absolute left-2 top-1/2 w-7 h-px bg-current origin-center"
             />
             <motion.span
               animate={{ opacity: open ? 0 : 1 }}
               transition={{ duration: 0.15 }}
-              className="absolute left-0 top-1/2 w-7 h-px bg-current"
+              className="absolute left-2 top-1/2 w-7 h-px bg-current"
             />
             <motion.span
               animate={{ rotate: open ? -45 : 0, y: open ? 0 : 6 }}
               transition={{ duration: 0.25 }}
-              className="absolute left-0 top-1/2 w-7 h-px bg-current origin-center"
+              className="absolute left-2 top-1/2 w-7 h-px bg-current origin-center"
             />
           </button>
         </div>

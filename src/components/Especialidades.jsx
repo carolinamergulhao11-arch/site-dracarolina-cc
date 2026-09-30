@@ -40,7 +40,7 @@ function Linha({ item, numero, delay }) {
         <h3 className="md:col-span-5 font-serif font-normal uppercase tracking-[0.04em] text-[clamp(1.5rem,2.4vw,2.25rem)] leading-tight transition-transform duration-500 md:group-hover:translate-x-3">
           {item.title}
         </h3>
-        <p className="md:col-span-6 text-[15px] leading-relaxed text-verde-escuro/75 md:pt-1.5">{item.text}</p>
+        <p className="md:col-span-6 text-base leading-relaxed text-verde-escuro/75 md:pt-1.5">{item.text}</p>
       </div>
     </motion.li>
   )
@@ -75,11 +75,11 @@ export default function Especialidades() {
               Tratamento individualizado, muito além da balança. Terapia farmacológica quando indicada, sempre com
               acompanhamento médico responsável e ajustes ao longo de todo o processo.
             </p>
-            <p className="text-[15px] leading-relaxed text-verde-escuro/65 mb-10">
+            <p className="text-base leading-relaxed text-verde-escuro/65 mb-10">
               O foco é perder gordura preservando massa muscular, com um plano que considera hormônios, sono e
               estresse para que o resultado se sustente.
             </p>
-            <Link to="/contato/" className="group inline-flex items-center gap-4 eyebrow text-verde-escuro">
+            <Link to="/contato/" className="group inline-flex items-center gap-4 py-2 -my-2 eyebrow text-verde-escuro">
               <span className="relative pb-1 after:absolute after:inset-x-0 after:bottom-0 after:h-px after:bg-current after:origin-left after:transition-transform after:duration-500 group-hover:after:scale-x-0">
                 Agendar avaliação
               </span>

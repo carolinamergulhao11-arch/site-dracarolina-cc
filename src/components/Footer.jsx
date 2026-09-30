@@ -10,7 +10,7 @@ const NAV = [
   { href: '/contato/', label: 'Contato', page: true },
 ]
 
-const LINK = 'hover:text-white transition-colors'
+const LINK = 'inline-block py-1.5 hover:text-white transition-colors'
 
 export default function Footer() {
   return (
@@ -27,7 +27,7 @@ export default function Footer() {
 
           <div>
             <div className="eyebrow text-bege-claro mb-5">Navegação</div>
-            <ul className="space-y-2.5">
+            <ul className="space-y-1">
               {NAV.map(l => (
                 <li key={l.href}>
                   {l.page
@@ -40,7 +40,7 @@ export default function Footer() {
 
           <div>
             <div className="eyebrow text-bege-claro mb-5">Contato</div>
-            <ul className="space-y-2.5">
+            <ul className="space-y-1">
               <li><a href={WHATSAPP_URL} target="_blank" rel="noopener" className={LINK}>{WHATSAPP_EXIBICAO}</a></li>
               <li><a href={INSTAGRAM_URL} target="_blank" rel="noopener" className={LINK}>Instagram</a></li>
             </ul>

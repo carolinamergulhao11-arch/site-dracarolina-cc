@@ -57,7 +57,7 @@ function Compartilhar({ post }) {
     }
   }
 
-  const botao = 'text-sm text-verde-escuro/75 hover:text-verde-escuro underline underline-offset-4 decoration-verde-escuro/25 hover:decoration-verde-escuro transition-colors'
+  const botao = 'inline-block py-2 -my-2 text-sm text-verde-escuro/75 hover:text-verde-escuro underline underline-offset-4 decoration-verde-escuro/25 hover:decoration-verde-escuro transition-colors'
   return (
     <div>
       <div className="eyebrow text-verde-oliva mb-4">Compartilhar</div>
@@ -98,9 +98,9 @@ function Post({ post }) {
           </Reveal>
           <div className="md:col-span-6 md:order-1">
             <Reveal className="flex items-center gap-4 mb-8 text-[12px]">
-              <Link to="/blog/" className="eyebrow text-verde-escuro/60 hover:text-verde-escuro transition-colors">← Blog</Link>
+              <Link to="/blog/" className="inline-block py-2 -my-2 eyebrow text-verde-escuro/60 hover:text-verde-escuro transition-colors">← Blog</Link>
               <span className="w-6 h-px bg-verde-escuro/25" />
-              <Link to={`/blog/?categoria=${encodeURIComponent(post.category)}`} className="eyebrow text-verde-oliva hover:text-verde-escuro transition-colors">
+              <Link to={`/blog/?categoria=${encodeURIComponent(post.category)}`} className="inline-block py-2 -my-2 eyebrow text-verde-oliva hover:text-verde-escuro transition-colors">
                 {post.category}
               </Link>
             </Reveal>
@@ -137,11 +137,11 @@ function Post({ post }) {
                 <div className="text-[12px] tracking-[0.08em] text-verde-escuro/55 mb-4">
                   Endocrinologista e Metabologista · CRM-SP 137.944 · RQE 36.594
                 </div>
-                <p className="text-[15px] leading-relaxed text-verde-escuro/75 mb-4">
+                <p className="text-base leading-relaxed text-verde-escuro/75 mb-4">
                   Formada pela UFRJ, especialista pela SBEM desde 2007, com formação em Nutrologia e Medicina Integrativa.
                   Transforma ciência em tratamento individualizado, muito além da balança.
                 </p>
-                <a href="/#sobre" className="text-sm underline underline-offset-4 decoration-verde-escuro/30 hover:decoration-verde-escuro">
+                <a href="/#sobre" className="inline-block py-2 -my-2 text-sm underline underline-offset-4 decoration-verde-escuro/30 hover:decoration-verde-escuro">
                   Conheça a Dra. Carolina
                 </a>
               </div>
@@ -183,7 +183,7 @@ function Post({ post }) {
           <div className="max-w-[1400px] mx-auto px-6 md:px-10 pt-24 md:pt-32 pb-28 md:pb-40">
             <div className="flex items-end justify-between gap-6 mb-12 pb-8 border-b border-verde-escuro/15">
               <h2 className="uppercase text-section">Leia também</h2>
-              <Link to="/blog/" className="eyebrow text-verde-escuro whitespace-nowrap hover:text-verde-oliva transition-colors">Todos os artigos →</Link>
+              <Link to="/blog/" className="inline-block py-2 -my-2 eyebrow text-verde-escuro whitespace-nowrap hover:text-verde-oliva transition-colors">Todos os artigos →</Link>
             </div>
             <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-14">
               {related.map(p => <li key={p.slug}><PostCard post={p} /></li>)}

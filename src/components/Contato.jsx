@@ -33,7 +33,7 @@ export default function Contato() {
                 <br />
                 {ENDERECO.linha2}
                 <br />
-                <a href={MAPA_URL} target="_blank" rel="noopener" className={`inline-block mt-2 text-sm ${LINK}`}>Ver no mapa ↗</a>
+                <a href={MAPA_URL} target="_blank" rel="noopener" className={`inline-block mt-2 py-2 -my-2 text-sm ${LINK}`}>Ver no mapa ↗</a>
               </dd>
             </div>
             <div className="py-7 sm:pl-8 border-b border-creme/15">
@@ -51,7 +51,7 @@ export default function Contato() {
             <div className="py-7 sm:pl-8 border-b border-creme/15">
               <dt className="eyebrow text-bege-claro mb-3">Instagram</dt>
               <dd>
-                <a href={INSTAGRAM_URL} target="_blank" rel="noopener" className={`text-creme/85 ${LINK}`}>@dracarolinamergulhao</a>
+                <a href={INSTAGRAM_URL} target="_blank" rel="noopener" className={`inline-block py-2 -my-2 text-creme/85 ${LINK}`}>@dracarolinamergulhao</a>
               </dd>
             </div>
           </Reveal>

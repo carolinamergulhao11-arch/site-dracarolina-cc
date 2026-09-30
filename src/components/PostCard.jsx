@@ -13,7 +13,7 @@ export default function PostCard({ post }) {
       <h3 className="text-lg leading-snug text-verde-escuro mb-3 group-hover:text-verde-oliva transition-colors">
         {post.title}
       </h3>
-      <p className="text-[15px] leading-relaxed text-verde-escuro/65">{post.excerpt}</p>
+      <p className="text-base leading-relaxed text-verde-escuro/65">{post.excerpt}</p>
     </Link>
   )
 }
