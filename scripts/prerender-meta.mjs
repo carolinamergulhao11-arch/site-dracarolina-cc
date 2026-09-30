@@ -1,6 +1,7 @@
 // Roda depois do `vite build`: gera um HTML por rota com title/meta/OG/JSON-LD estáticos,
 // para que crawlers sem JS (WhatsApp, Facebook) e o Google recebam status 200 e metadados certos.
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs'
+import { createHash } from 'node:crypto'
 import { POSTS, srcsetArte } from '../src/data/posts.js'
 import { PERGUNTAS } from '../src/data/faq.js'
 import { SEO, MARCA, tituloDoPost } from '../src/data/seo.js'
@@ -91,7 +92,27 @@ const faqPage = {
 const template = readFileSync(`${DIST}/index.html`, 'utf8')
 const MARKER = /<!--seo[\s\S]*?<!--\/seo-->/
 if (!MARKER.test(template)) throw new Error('Bloco <!--seo--> não encontrado em dist/index.html')
-const render = (block) => template.replace(MARKER, block)
+// CSP por metatag (o GitHub Pages não permite cabeçalhos HTTP). Só no build: o Vite dev usa scripts
+// inline de hot reload. Cada <script> inline executável do template entra por hash; JSON-LD é dado, não conta.
+const inlineHashes = [...template.matchAll(/<script>([\s\S]*?)<\/script>/g)]
+  .map(([, code]) => `'sha256-${createHash('sha256').update(code).digest('base64')}'`)
+const CSP = [
+  "default-src 'self'",
+  `script-src 'self' ${inlineHashes.join(' ')}`,
+  "style-src 'self' 'unsafe-inline'", // Framer Motion anima via atributo style
+  "img-src 'self' data:",
+  "font-src 'self'",
+  "connect-src 'self'",
+  'frame-src https://www.google.com', // mapa do Contato, carregado sob demanda
+  "object-src 'none'",
+  "base-uri 'self'",
+  "form-action 'self'",
+  'upgrade-insecure-requests',
+].join('; ')
+const CHARSET = '<meta charset="UTF-8">'
+if (!template.includes(CHARSET)) throw new Error('meta charset não encontrado em dist/index.html')
+const SEGURANCA = `${CHARSET}\n<meta http-equiv="Content-Security-Policy" content="${CSP}">\n<meta name="referrer" content="strict-origin-when-cross-origin">`
+const render = (block) => template.replace(MARKER, block).replace(CHARSET, SEGURANCA)
 
 const routes = [
   {

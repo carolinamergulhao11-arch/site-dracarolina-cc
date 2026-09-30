@@ -17,7 +17,7 @@ export default function Blog() {
             <LineReveal lines={['Conteúdo', 'para você']} className="uppercase text-section" />
           </div>
           <Reveal delay={0.1} className="md:col-span-3 md:text-right">
-            <Link to="/blog/" className="group inline-flex items-center gap-3 eyebrow text-verde-escuro">
+            <Link to="/blog/" className="group inline-flex items-center gap-3 py-2 -my-2 eyebrow text-verde-escuro">
               <span className="relative pb-1 after:absolute after:inset-x-0 after:bottom-0 after:h-px after:bg-current after:origin-left after:transition-transform after:duration-500 group-hover:after:scale-x-0">
                 Ver todos os artigos
               </span>
@@ -36,7 +36,7 @@ export default function Blog() {
               <h3 className="text-[clamp(1.5rem,2.4vw,2.1rem)] leading-snug text-verde-escuro mb-4 max-w-2xl group-hover:text-verde-oliva transition-colors">
                 {destaque.title}
               </h3>
-              <p className="text-[15px] leading-relaxed text-verde-escuro/70 max-w-2xl">{destaque.excerpt}</p>
+              <p className="text-base leading-relaxed text-verde-escuro/70 max-w-2xl">{destaque.excerpt}</p>
             </Link>
           </Reveal>
 
