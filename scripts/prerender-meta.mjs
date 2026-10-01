@@ -1,7 +1,9 @@
-// Roda depois do `vite build`: gera um HTML por rota com title/meta/OG/JSON-LD estáticos,
-// para que crawlers sem JS (WhatsApp, Facebook) e o Google recebam status 200 e metadados certos.
+// Roda depois do `vite build` (cliente) e do `vite build --ssr` (servidor): gera um HTML por rota com
+// title/meta/OG/JSON-LD estáticos e o corpo da página já renderizado dentro do #root, para que o Google,
+// o Bing, os buscadores de IA e as prévias de link recebam o conteúdo completo sem executar JavaScript.
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs'
 import { createHash } from 'node:crypto'
+import { render as renderApp } from '../dist-ssr/entry-server.js'
 import { POSTS, srcsetArte } from '../src/data/posts.js'
 import { PERGUNTAS } from '../src/data/faq.js'
 import { SEO, MARCA, tituloDoPost } from '../src/data/seo.js'
@@ -120,7 +122,14 @@ const CSP = [
 const CHARSET = '<meta charset="UTF-8">'
 if (!template.includes(CHARSET)) throw new Error('meta charset não encontrado em dist/index.html')
 const SEGURANCA = `${CHARSET}\n<meta http-equiv="Content-Security-Policy" content="${CSP}">\n<meta name="referrer" content="strict-origin-when-cross-origin">`
-const render = (block) => template.replace(MARKER, () => block).replace(CHARSET, () => SEGURANCA)
+const ROOT_VAZIO = '<div id="root"></div>'
+if (!template.includes(ROOT_VAZIO)) throw new Error('<div id="root"></div> não encontrado em dist/index.html')
+// ssrPath: o navegador só hidrata se a URL for a mesma da renderizada (o 404.html reescreve a URL).
+const render = (block, path) =>
+  template
+    .replace(MARKER, () => block)
+    .replace(CHARSET, () => SEGURANCA)
+    .replace(ROOT_VAZIO, () => `<div id="root" data-ssr-path="${path}">${renderApp(path)}</div>`)
 
 const routes = [
   {
@@ -222,7 +231,7 @@ const routes = [
 
 for (const r of routes) {
   mkdirSync(r.file.slice(0, r.file.lastIndexOf('/')), { recursive: true })
-  writeFileSync(r.file, render(r.block))
+  writeFileSync(r.file, render(r.block, r.path))
 }
 
 // lastmod só onde há uma data de verdade (a do conteúdo); com a data do build, o Google passa a ignorá-lo
