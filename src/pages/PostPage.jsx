@@ -15,6 +15,9 @@ import { lenis } from '../lib/lenis'
 
 const slugify = (s) => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
 
+// 30/09/2026: o formato curto cabe na linha de autoria sem quebrar
+const dataCurta = (iso) => new Date(`${iso}T12:00:00`).toLocaleDateString('pt-BR')
+
 function minutosDeLeitura(post) {
   const texto = [post.excerpt, ...post.sections.flatMap(s => [s.heading, ...s.paragraphs])].join(' ')
   return Math.max(1, Math.round(texto.split(/\s+/).length / 200))
@@ -117,7 +120,7 @@ function Post({ post }) {
         <header className="max-w-[1400px] mx-auto px-6 md:px-10 grid md:grid-cols-12 gap-10 md:gap-12 items-center pb-16 md:pb-24 border-b border-verde-escuro/15">
           {/* Sem zoom: as artes têm texto na borda, que o recorte do ImageReveal cortaria */}
           <Reveal className="md:col-span-6 md:order-2">
-            <img src={post.image} alt={post.title} fetchPriority="high" className="w-full aspect-video object-cover" />
+            <img src={post.image} alt={post.imageAlt} fetchPriority="high" className="w-full aspect-video object-cover" />
           </Reveal>
           <div className="md:col-span-6 md:order-1">
             <Reveal className="flex items-center gap-4 mb-8 text-[12px]">
@@ -130,7 +133,8 @@ function Post({ post }) {
             <LineReveal as="h1" immediate delay={0.1} lines={[post.title]} className="uppercase text-[clamp(2rem,3.8vw,3.6rem)] leading-[1.08] mb-8" />
             <Reveal delay={0.25} className="text-lg md:text-xl leading-relaxed text-verde-escuro/75 mb-8">{post.excerpt}</Reveal>
             <Reveal delay={0.35} className="text-[13px] text-verde-escuro/60">
-              Por <span className="text-verde-escuro font-medium">Dra. Carolina Mergulhão</span> · Endocrinologista · {minutosDeLeitura(post)} min de leitura
+              Por <span className="text-verde-escuro font-medium">Dra. Carolina Mergulhão</span> · Endocrinologista · {minutosDeLeitura(post)} min de leitura · Publicado em{' '}
+              <time dateTime={post.publicado}>{dataCurta(post.publicado)}</time>
             </Reveal>
           </div>
         </header>
@@ -145,6 +149,10 @@ function Post({ post }) {
             <div className="md:hidden pt-10 border-t border-verde-escuro/15 mb-14">
               <Compartilhar post={post} />
             </div>
+
+            <Reveal className="text-sm leading-relaxed text-verde-escuro/75 mb-12">
+              Conteúdo informativo. Não substitui a avaliação médica individual.
+            </Reveal>
 
             {/* Autoria */}
             <Reveal className="grid grid-cols-[5.5rem_1fr] sm:grid-cols-[7rem_1fr] gap-6 items-start pt-12 border-t border-verde-escuro/15">
