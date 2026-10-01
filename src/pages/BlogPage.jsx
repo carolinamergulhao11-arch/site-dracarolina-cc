@@ -47,15 +47,15 @@ export default function BlogPage() {
         <div className="max-w-[1400px] mx-auto px-6 md:px-10">
           <div className="grid md:grid-cols-12 gap-8 items-end mb-14 md:mb-20">
             <div className="md:col-span-8">
-              <Reveal className="eyebrow text-verde-oliva mb-6">Blog</Reveal>
+              <Reveal fade={false} className="eyebrow text-verde-oliva mb-6">Blog</Reveal>
               <LineReveal as="h1" immediate delay={0.1} lines={['Conteúdo', 'para você']} className="uppercase text-display" />
             </div>
-            <Reveal delay={0.2} className="md:col-span-4 text-verde-escuro/75 leading-relaxed">
+            <Reveal fade={false} delay={0.2} className="md:col-span-4 text-verde-escuro/75 leading-relaxed">
               Artigos sobre emagrecimento, metabolismo, saúde hormonal e os hábitos que sustentam o tratamento.
             </Reveal>
           </div>
 
-          <Reveal delay={0.25} className="pb-10 mb-12 md:mb-16 border-b border-verde-escuro/15">
+          <Reveal fade={false} delay={0.25} className="pb-10 mb-12 md:mb-16 border-b border-verde-escuro/15">
             <nav className="flex flex-wrap gap-2.5" aria-label="Categorias">
               <Pill active={!categoria} onClick={() => setParams({})}>Todos</Pill>
               {CATEGORIAS.map(c => (

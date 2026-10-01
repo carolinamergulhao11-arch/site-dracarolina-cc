@@ -81,23 +81,8 @@ function Post({ post }) {
   const { scrollYProgress } = useScroll()
   const related = POSTS.filter(p => p.slug !== post.slug).slice(0, 3)
 
-  // Link compartilhado com #seção (índice do artigo) abre direto na seção.
-  useEffect(() => {
-    if (!location.hash) return
-    // Espera o Lenis medir a altura da página; sem isso o limite de rolagem ainda é zero.
-    const t = setTimeout(() => {
-      try {
-        const el = document.getElementById(decodeURIComponent(location.hash.slice(1)))
-        if (el) {
-          lenis.resize()
-          lenis.scrollTo(el.getBoundingClientRect().top + window.scrollY - 110, { immediate: true })
-        }
-      } catch {
-        // hash malformado: ignora
-      }
-    }, 200)
-    return () => clearTimeout(t)
-  }, [])
+  // Link compartilhado com #seção: o HTML já traz as seções, então o próprio navegador rola até elas
+  // (com scroll-mt-28 deixando a folga do cabeçalho); não precisa de rolagem por JavaScript.
 
   function irPara(e, id) {
     e.preventDefault()
@@ -119,11 +104,11 @@ function Post({ post }) {
         {/* Topo: título à esquerda, arte à direita */}
         <header className="max-w-[1400px] mx-auto px-6 md:px-10 grid md:grid-cols-12 gap-10 md:gap-12 items-center pb-16 md:pb-24 border-b border-verde-escuro/15">
           {/* Sem zoom: as artes têm texto na borda, que o recorte do ImageReveal cortaria */}
-          <Reveal className="md:col-span-6 md:order-2">
+          <Reveal fade={false} className="md:col-span-6 md:order-2">
             <img src={post.image} alt={post.imageAlt} fetchPriority="high" className="w-full aspect-[1734/907] object-cover" />
           </Reveal>
           <div className="md:col-span-6 md:order-1">
-            <Reveal className="flex items-center gap-4 mb-8 text-[12px]">
+            <Reveal fade={false} className="flex items-center gap-4 mb-8 text-[12px]">
               <Link to="/blog/" className="inline-block py-2 -my-2 eyebrow text-verde-escuro/60 hover:text-verde-escuro transition-colors">← Blog</Link>
               <span className="w-6 h-px bg-verde-escuro/25" />
               <Link to={`/blog/?categoria=${encodeURIComponent(post.category)}`} className="inline-block py-2 -my-2 eyebrow text-verde-oliva hover:text-verde-escuro transition-colors">
@@ -131,8 +116,8 @@ function Post({ post }) {
               </Link>
             </Reveal>
             <LineReveal as="h1" immediate delay={0.1} lines={[post.title]} className="uppercase text-[clamp(2rem,3.8vw,3.6rem)] leading-[1.08] mb-8" />
-            <Reveal delay={0.25} className="text-lg md:text-xl leading-relaxed text-verde-escuro/75 mb-8">{post.excerpt}</Reveal>
-            <Reveal delay={0.35} className="text-[13px] text-verde-escuro/60">
+            <Reveal fade={false} delay={0.25} className="text-lg md:text-xl leading-relaxed text-verde-escuro/75 mb-8">{post.excerpt}</Reveal>
+            <Reveal fade={false} delay={0.35} className="text-[13px] text-verde-escuro/60">
               Por <span className="text-verde-escuro font-medium">Dra. Carolina Mergulhão</span> · Endocrinologista · {minutosDeLeitura(post)} min de leitura · Publicado em{' '}
               <time dateTime={post.publicado}>{dataCurta(post.publicado)}</time>
             </Reveal>

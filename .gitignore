@@ -1,6 +1,7 @@
 .env
 node_modules/
 dist/
+dist-ssr/
 _originais/
 .DS_Store
 .claude/

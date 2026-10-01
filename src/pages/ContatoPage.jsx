@@ -156,13 +156,13 @@ export default function ContatoPage() {
       <main id="conteudo" className="bg-off pt-36 md:pt-48">
         <div className="max-w-[1400px] mx-auto px-6 md:px-10 grid md:grid-cols-12 gap-14 md:gap-8">
           <div className="md:col-span-5">
-            <Reveal className="eyebrow text-verde-oliva mb-6">Contato</Reveal>
+            <Reveal fade={false} className="eyebrow text-verde-oliva mb-6">Contato</Reveal>
             <LineReveal as="h1" immediate delay={0.1} lines={['Agende sua', 'consulta']} className="uppercase text-section mb-8" />
-            <Reveal delay={0.2} className="text-lg leading-relaxed text-verde-escuro/75 mb-12">
+            <Reveal fade={false} delay={0.2} className="text-lg leading-relaxed text-verde-escuro/75 mb-12">
               O primeiro passo é uma avaliação completa. Preencha o formulário ou fale direto pelos canais abaixo.
             </Reveal>
 
-            <Reveal delay={0.25} as="dl" className="space-y-8 pt-10 border-t border-verde-escuro/15 mb-14">
+            <Reveal fade={false} delay={0.25} as="dl" className="space-y-8 pt-10 border-t border-verde-escuro/15 mb-14">
               <div>
                 <dt className="eyebrow text-verde-oliva mb-2.5">Endereço</dt>
                 <dd className="leading-relaxed">
@@ -201,7 +201,7 @@ export default function ContatoPage() {
             />
           </div>
 
-          <Reveal delay={0.2} className="md:col-span-6 md:col-start-7 md:sticky md:top-28 md:self-start">
+          <Reveal fade={false} delay={0.2} className="md:col-span-6 md:col-start-7 md:sticky md:top-28 md:self-start">
             <Formulario />
           </Reveal>
         </div>
