@@ -12,6 +12,10 @@ export const SEO = {
     title: `Blog sobre emagrecimento | ${MARCA}`,
     description: 'Artigos da Dra. Carolina Mergulhão, endocrinologista em São Paulo, sobre emagrecimento, metabolismo, massa muscular, menopausa, sono e estresse.',
   },
+  privacidade: {
+    title: `Política de Privacidade | ${MARCA}`,
+    description: 'Como o site da Dra. Carolina Mergulhão trata dados e cookies, de acordo com a LGPD: formulário de contato, medição com consentimento e seus direitos.',
+  },
   contato: {
     title: `Agende sua consulta em São Paulo | ${MARCA}`,
     description: 'Agende sua consulta com a Dra. Carolina Mergulhão, endocrinologista em São Paulo. Atendimento presencial na Consolação. WhatsApp (11) 97648-1629.',

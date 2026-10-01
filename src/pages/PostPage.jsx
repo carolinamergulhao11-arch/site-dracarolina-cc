@@ -12,6 +12,7 @@ import PostCard from '../components/PostCard'
 import CtaConsulta from '../components/CtaConsulta'
 import { POSTS, getPostBySlug } from '../data/posts'
 import { lenis } from '../lib/lenis'
+import { rastrear } from '../lib/pixel'
 
 const slugify = (s) => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
 
@@ -215,6 +216,10 @@ function Post({ post }) {
 export default function PostPage() {
   const { slug } = useParams()
   const post = getPostBySlug(slug)
+
+  useEffect(() => {
+    if (post) rastrear('ViewContent', { content_name: post.title, content_type: 'article' })
+  }, [post])
 
   if (!post) return <Navigate to="/blog/" replace />
 

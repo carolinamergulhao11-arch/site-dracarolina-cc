@@ -108,11 +108,11 @@ const inlineHashes = [...template.matchAll(/<script>([\s\S]*?)<\/script>/g)]
   .map(([, code]) => `'sha256-${createHash('sha256').update(code).digest('base64')}'`)
 const CSP = [
   "default-src 'self'",
-  `script-src 'self' ${inlineHashes.join(' ')}`,
+  `script-src 'self' ${inlineHashes.join(' ')} https://connect.facebook.net`,
   "style-src 'self' 'unsafe-inline'", // Framer Motion anima via atributo style
-  "img-src 'self' data:",
+  "img-src 'self' data: https://www.facebook.com",
   "font-src 'self'",
-  "connect-src 'self'",
+  "connect-src 'self' https://www.facebook.com https://connect.facebook.net",
   'frame-src https://www.google.com', // mapa do Contato, carregado sob demanda
   "object-src 'none'",
   "base-uri 'self'",
@@ -190,6 +190,11 @@ const routes = [
         about: physician,
       }],
     }),
+  },
+  {
+    path: '/privacidade/',
+    file: `${DIST}/privacidade/index.html`,
+    block: seoBlock({ ...SEO.privacidade, path: '/privacidade/', image: OG_CARD, type: 'website', jsonLd: [] }),
   },
   ...POSTS.map((post) => ({
     path: `/blog/${post.slug}/`,

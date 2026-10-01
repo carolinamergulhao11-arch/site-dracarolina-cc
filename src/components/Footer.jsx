@@ -61,6 +61,12 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row justify-between gap-3 pt-8 pr-20 border-t border-creme/15 text-xs text-creme/50">
           <span>&copy; 2026 Dra. Carolina Mergulhão</span>
           <span>Endocrinologia e Metabologia · CRM-SP 137.944 · RQE 36.594</span>
+          <span className="flex gap-5">
+            <Link to="/privacidade/" className="hover:text-creme">Política de Privacidade</Link>
+            <button type="button" onClick={() => window.dispatchEvent(new Event('abrir-cookies'))} className="hover:text-creme">
+              Preferências de cookies
+            </button>
+          </span>
         </div>
       </div>
     </footer>
