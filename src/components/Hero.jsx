@@ -1,6 +1,7 @@
 import { motion, useScroll, useTransform, useReducedMotion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import LineReveal from './motion/LineReveal'
+import { HERO_FOTO } from '../data/imagens'
 
 const MotionLink = motion.create(Link)
 
@@ -19,9 +20,13 @@ export default function Hero() {
         initial={{ scale: 1.3 }}
         animate={{ scale: 1.12 }}
         transition={{ duration: 2.6, ease: EASE }}
-        src="/assets/images/dra-carolina-mergulhao-hero-sorrindo-varanda.webp"
+        src={HERO_FOTO.src}
+        srcSet={HERO_FOTO.srcSet}
+        sizes={HERO_FOTO.sizes}
+        width={HERO_FOTO.width}
+        height={HERO_FOTO.height}
         fetchPriority="high"
-        alt="Dra. Carolina Mergulhão, endocrinologista e metabologista"
+        alt={HERO_FOTO.alt}
         className="absolute inset-0 w-full h-full object-cover object-[center_15%] md:object-[110%_15%]"
       />
       <div
