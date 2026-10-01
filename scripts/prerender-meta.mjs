@@ -6,14 +6,14 @@ import { POSTS, srcsetArte } from '../src/data/posts.js'
 import { PERGUNTAS } from '../src/data/faq.js'
 import { SEO, MARCA, tituloDoPost } from '../src/data/seo.js'
 import { MAPA_URL } from '../src/data/contato.js'
+import { HERO_FOTO } from '../src/data/imagens.js'
 
 const SITE = 'https://dracarolinamergulhao.com.br'
 const SITE_NAME = MARCA
-const HERO = '/assets/images/dra-carolina-mergulhao-hero-sorrindo-varanda.webp'
 // Recorte 1200x630 da foto do hero (vertical), usado como imagem da Dra. no schema Physician
-const OG_IMAGE = '/assets/images/og/dra-carolina-mergulhao-og.jpg'
+const OG_IMAGE = '/assets/images/og/og-foto-dra-carolina-mergulhao.jpg'
 // Cartão da marca para prévia de link (fonte em _originais/og/og-fonte.html)
-const OG_CARD = '/assets/images/og/og-dra-carolina-mergulhao.jpg'
+const OG_CARD = '/assets/images/og/og-card-dra-carolina-mergulhao.jpg'
 const INSTAGRAM = 'https://www.instagram.com/dracarolinamergulhao/'
 const DIST = 'dist'
 
@@ -131,7 +131,9 @@ const routes = [
       path: '/',
       image: OG_CARD,
       type: 'website',
-      preload: HERO,
+      preload: HERO_FOTO.src,
+      preloadSrcset: HERO_FOTO.srcSet,
+      preloadSizes: HERO_FOTO.sizes,
       jsonLd: [physician, faqPage],
     }),
   },
