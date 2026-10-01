@@ -10,7 +10,7 @@ export default function NotFoundPage() {
     <>
       <Seo title={`Página não encontrada | ${MARCA}`} />
       <Header />
-      <main className="bg-off pt-40 md:pt-52 pb-28 md:pb-40">
+      <main id="conteudo" className="bg-off pt-40 md:pt-52 pb-28 md:pb-40">
         <div className="max-w-[1400px] mx-auto px-6 md:px-10">
           <div className="eyebrow text-verde-oliva mb-6">Erro 404</div>
           <LineReveal as="h1" immediate lines={['Página não', 'encontrada']} className="uppercase text-display mb-8" />

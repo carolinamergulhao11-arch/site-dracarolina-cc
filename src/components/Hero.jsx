@@ -1,4 +1,4 @@
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { motion, useScroll, useTransform, useReducedMotion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import LineReveal from './motion/LineReveal'
 
@@ -10,11 +10,12 @@ export default function Hero() {
   const { scrollY } = useScroll()
   const y = useTransform(scrollY, [0, 900], [0, 160])
   const fade = useTransform(scrollY, [0, 500], [1, 0])
+  const reduce = useReducedMotion()
 
   return (
     <section id="inicio" className="relative h-svh min-h-[640px] flex items-end overflow-hidden text-white bg-verde-escuro">
       <motion.img
-        style={{ y }}
+        style={{ y: reduce ? 0 : y }}
         initial={{ scale: 1.3 }}
         animate={{ scale: 1.12 }}
         transition={{ duration: 2.6, ease: EASE }}

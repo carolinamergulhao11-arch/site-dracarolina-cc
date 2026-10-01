@@ -1,5 +1,5 @@
 import { useRef } from 'react'
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { motion, useScroll, useTransform, useReducedMotion } from 'framer-motion'
 
 const mask = {
   hidden: { clipPath: 'inset(100% 0% 0% 0%)' },
@@ -17,6 +17,7 @@ export default function ImageReveal({ src, alt, className = '', pos = 'center' }
   const ref = useRef(null)
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] })
   const y = useTransform(scrollYProgress, [0, 1], ['-6%', '6%'])
+  const reduce = useReducedMotion()
 
   return (
     <motion.div
@@ -32,7 +33,7 @@ export default function ImageReveal({ src, alt, className = '', pos = 'center' }
           alt={alt}
           loading="lazy"
           variants={zoom}
-          style={{ y, objectPosition: pos }}
+          style={{ y: reduce ? 0 : y, objectPosition: pos }}
           className="absolute inset-0 w-full h-full object-cover"
         />
       </motion.div>

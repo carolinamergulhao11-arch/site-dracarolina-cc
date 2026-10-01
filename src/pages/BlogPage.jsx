@@ -43,7 +43,7 @@ export default function BlogPage() {
     <>
       <Seo title={SEO.blog.title} />
       <Header />
-      <main className="bg-off pt-36 md:pt-48 pb-28 md:pb-40">
+      <main id="conteudo" className="bg-off pt-36 md:pt-48 pb-28 md:pb-40">
         <div className="max-w-[1400px] mx-auto px-6 md:px-10">
           <div className="grid md:grid-cols-12 gap-8 items-end mb-14 md:mb-20">
             <div className="md:col-span-8">

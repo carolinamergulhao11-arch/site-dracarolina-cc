@@ -23,22 +23,30 @@ import NotFoundPage from './pages/NotFoundPage'
 function Home() {
   // Chegando de outra página em /#secao, o navegador tenta rolar antes do React montar a seção.
   useEffect(() => {
-    if (location.hash) document.querySelector(location.hash)?.scrollIntoView()
+    if (!location.hash) return
+    try {
+      // getElementById aceita qualquer texto; querySelector lançava erro com #1 ou #utm=...
+      document.getElementById(decodeURIComponent(location.hash.slice(1)))?.scrollIntoView()
+    } catch {
+      // hash malformado (ex.: % solto): ignora e fica no topo
+    }
   }, [])
 
   return (
     <>
       <Seo title={SEO.home.title} />
       <Header />
-      <Hero />
-      <Manifesto />
-      <Especialidades />
-      <Sobre />
-      <Metodo />
-      <Galeria />
-      <Blog />
-      <Contato />
-      <Faq />
+      <main id="conteudo">
+        <Hero />
+        <Manifesto />
+        <Especialidades />
+        <Sobre />
+        <Metodo />
+        <Galeria />
+        <Blog />
+        <Contato />
+        <Faq />
+      </main>
       <WhatsAppFloat />
       <Footer />
     </>
