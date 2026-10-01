@@ -6,6 +6,7 @@ import { createHash } from 'node:crypto'
 import { render as renderApp } from '../dist-ssr/entry-server.js'
 import { POSTS, srcsetArte } from '../src/data/posts.js'
 import { PERGUNTAS } from '../src/data/faq.js'
+import { PAGINAS, PUBLICADO, tituloDaPagina } from '../src/data/paginas.js'
 import { SEO, MARCA, tituloDoPost } from '../src/data/seo.js'
 import { MAPA_URL } from '../src/data/contato.js'
 import { HERO_FOTO } from '../src/data/imagens.js'
@@ -196,6 +197,44 @@ const routes = [
     file: `${DIST}/privacidade/index.html`,
     block: seoBlock({ ...SEO.privacidade, path: '/privacidade/', image: OG_CARD, type: 'website', jsonLd: [] }),
   },
+  ...PAGINAS.map((pagina) => {
+    const path = `/${pagina.slug}/`
+    const url = SITE + path
+    const titulo = tituloDaPagina(pagina)
+    return {
+      path,
+      file: `${DIST}${path}index.html`,
+      lastmod: PUBLICADO,
+      block: seoBlock({
+        title: titulo,
+        description: pagina.description,
+        path,
+        image: OG_CARD,
+        type: 'website',
+        jsonLd: [{
+          '@context': 'https://schema.org',
+          '@type': pagina.slug === 'sobre' ? 'AboutPage' : 'MedicalWebPage',
+          name: pagina.titulo,
+          description: pagina.description,
+          url,
+          inLanguage: 'pt-BR',
+          about: { '@id': PHYSICIAN_ID },
+          author: { '@id': PHYSICIAN_ID },
+        }, {
+          '@context': 'https://schema.org',
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            { '@type': 'ListItem', position: 1, name: 'Início', item: SITE + '/' },
+            { '@type': 'ListItem', position: 2, name: pagina.menu, item: url },
+          ],
+        }, {
+          '@context': 'https://schema.org',
+          '@type': 'FAQPage',
+          mainEntity: pagina.faq.map(({ q, a }) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })),
+        }],
+      }),
+    }
+  }),
   ...POSTS.map((post) => ({
     path: `/blog/${post.slug}/`,
     file: `${DIST}/blog/${post.slug}/index.html`,

@@ -1,9 +1,10 @@
 import { Link } from 'react-router-dom'
+import { PAGINAS } from '../data/paginas'
 import { WHATSAPP_URL, WHATSAPP_EXIBICAO, INSTAGRAM_URL, ENDERECO } from '../data/contato'
 
 const NAV = [
   { href: '/#especialidades', label: 'Especialidades' },
-  { href: '/#sobre', label: 'Sobre' },
+  { href: '/sobre/', label: 'Sobre', page: true },
   { href: '/#metodo', label: 'Método' },
   { href: '/blog/', label: 'Blog', page: true },
   { href: '/#faq', label: 'FAQ' },
@@ -22,7 +23,7 @@ export default function Footer() {
           da balança
         </p>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 pt-12 border-t border-creme/15 mb-16">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-10 pt-12 border-t border-creme/15 mb-16">
           <img src="/assets/logos/logo-vertical-white.webp" alt="Dra. Carolina Mergulhão" width={420} height={192} loading="lazy" className="h-24 w-auto" />
 
           <div>
@@ -34,6 +35,15 @@ export default function Footer() {
                     ? <Link to={l.href} className={LINK}>{l.label}</Link>
                     : <a href={l.href} className={LINK}>{l.label}</a>}
                 </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <div className="eyebrow text-bege-claro mb-5">Tratamentos</div>
+            <ul className="space-y-1">
+              {PAGINAS.filter(p => p.slug !== 'sobre').map(p => (
+                <li key={p.slug}><Link to={`/${p.slug}/`} className={LINK}>{p.menu}</Link></li>
               ))}
             </ul>
           </div>

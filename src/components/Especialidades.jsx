@@ -7,18 +7,22 @@ import ImageReveal from './motion/ImageReveal'
 const OUTRAS = [
   {
     title: 'Saúde da Mulher e Menopausa',
+    to: '/menopausa/',
     text: 'Transição menopáusica, terapia hormonal individualizada e impacto hormonal no peso e metabolismo, com atenção aos sintomas que muitas vezes são ignorados.',
   },
   {
     title: 'Composição Corporal e Massa Muscular',
+    to: '/composicao-corporal/',
     text: 'Preservação e ganho de massa muscular, suplementação proteica orientada e prevenção do efeito sanfona.',
   },
   {
     title: 'Sono e Recuperação',
+    to: '/sono-e-estresse/',
     text: 'Sono como pilar metabólico ativo no tratamento, não apenas descanso. Noites maldormidas afetam hormônios, apetite e a resposta do corpo ao tratamento.',
   },
   {
     title: 'Estresse e Cortisol',
+    to: '/sono-e-estresse/',
     text: 'Como o estresse crônico trava o emagrecimento e desequilibra o metabolismo. Entender essa relação é parte essencial de um tratamento completo.',
   },
 ]
@@ -40,7 +44,10 @@ function Linha({ item, numero, delay }) {
         <h3 className="md:col-span-5 font-serif font-normal uppercase tracking-[0.04em] text-[clamp(1.5rem,2.4vw,2.25rem)] leading-tight transition-transform duration-500 md:group-hover:translate-x-3">
           {item.title}
         </h3>
-        <p className="md:col-span-6 text-base leading-relaxed text-verde-escuro/75 md:pt-1.5">{item.text}</p>
+        <div className="md:col-span-6 md:pt-1.5">
+          <p className="text-base leading-relaxed text-verde-escuro/75 mb-4">{item.text}</p>
+          <Link to={item.to} className="inline-block py-2 -my-2 eyebrow text-verde-escuro hover:text-verde-oliva transition-colors">Saiba mais →</Link>
+        </div>
       </div>
     </motion.li>
   )
@@ -79,12 +86,20 @@ export default function Especialidades() {
               O foco é perder gordura preservando massa muscular, com um plano que considera hormônios, sono e
               estresse para favorecer resultados duradouros.
             </p>
-            <Link to="/contato/" className="group inline-flex items-center gap-4 py-2 -my-2 eyebrow text-verde-escuro">
-              <span className="relative pb-1 after:absolute after:inset-x-0 after:bottom-0 after:h-px after:bg-current after:origin-left after:transition-transform after:duration-500 group-hover:after:scale-x-0">
-                Agendar consulta
-              </span>
-              <span className="transition-transform duration-500 group-hover:translate-x-2">→</span>
-            </Link>
+            <div className="flex flex-wrap items-center gap-x-10 gap-y-4">
+              <Link to="/emagrecimento/" className="group inline-flex items-center gap-4 py-2 -my-2 eyebrow text-verde-escuro">
+                <span className="relative pb-1 after:absolute after:inset-x-0 after:bottom-0 after:h-px after:bg-current after:origin-left after:transition-transform after:duration-500 group-hover:after:scale-x-0">
+                  Saiba mais
+                </span>
+                <span className="transition-transform duration-500 group-hover:translate-x-2">→</span>
+              </Link>
+              <Link to="/contato/" className="group inline-flex items-center gap-4 py-2 -my-2 eyebrow text-verde-escuro">
+                <span className="relative pb-1 after:absolute after:inset-x-0 after:bottom-0 after:h-px after:bg-current after:origin-left after:transition-transform after:duration-500 group-hover:after:scale-x-0">
+                  Agendar consulta
+                </span>
+                <span className="transition-transform duration-500 group-hover:translate-x-2">→</span>
+              </Link>
+            </div>
           </Reveal>
         </div>
 

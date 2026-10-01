@@ -8,7 +8,7 @@ import { lenis } from '../lib/lenis'
 // `page`: rota própria (Link do router); sem ele, âncora de seção da home.
 const LINKS = [
   { href: '/#especialidades', label: 'Especialidades' },
-  { href: '/#sobre', label: 'Sobre' },
+  { href: '/sobre/', label: 'Sobre', page: true },
   { href: '/#metodo', label: 'Método' },
   { href: '/blog/', label: 'Blog', page: true },
   { href: '/#faq', label: 'FAQ' },

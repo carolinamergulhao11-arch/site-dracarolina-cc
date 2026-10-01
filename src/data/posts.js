@@ -1,6 +1,7 @@
 export const POSTS = [
   {
     slug: 'emagrecimento-massa-muscular',
+    pagina: 'emagrecimento',
     category: 'Emagrecimento',
     title: 'Emagrecimento rápido pode custar sua massa muscular',
     excerpt: 'Perder peso rápido demais, sem acompanhamento adequado, frequentemente significa perder músculo junto com a gordura. Entenda por que isso acontece e como um tratamento bem conduzido ajuda a prevenir o efeito sanfona.',
@@ -49,6 +50,7 @@ export const POSTS = [
   },
   {
     slug: 'menopausa-metabolismo',
+    pagina: 'menopausa',
     category: 'Saúde da Mulher',
     title: 'Menopausa: o que muda no metabolismo e como tratar',
     excerpt: 'A queda hormonal da menopausa afeta diretamente o peso, o sono e a disposição. Veja como a terapia hormonal individualizada pode ajudar a atravessar essa fase com mais qualidade de vida.',
@@ -97,6 +99,7 @@ export const POSTS = [
   },
   {
     slug: 'composicao-corporal-massa-muscular',
+    pagina: 'composicao-corporal',
     category: 'Composição Corporal',
     title: 'Por que preservar massa muscular é prioridade no tratamento',
     excerpt: 'Músculo não é só estética: é metabolismo ativo, proteção óssea e qualidade de vida a longo prazo. Saiba como a suplementação proteica orientada entra no plano de tratamento.',
@@ -144,6 +147,7 @@ export const POSTS = [
   },
   {
     slug: 'sono-estresse-emagrecimento',
+    pagina: 'sono-e-estresse',
     category: 'Sono e Estresse',
     title: 'Sono ruim e estresse crônico travam o seu emagrecimento',
     excerpt: 'Cortisol elevado e noites mal dormidas dificultam a perda de peso, mesmo com dieta e exercício em dia. Entenda a relação entre metabolismo, sono e estresse no tratamento.',
