@@ -1,6 +1,8 @@
 import { useEffect } from 'react'
 import { Routes, Route, useLocation } from 'react-router-dom'
 import { lenis } from './lib/lenis'
+import { rastrear } from './lib/pixel'
+import ConsentBanner from './components/ConsentBanner'
 import Seo from './components/Seo'
 import { SEO } from './data/seo'
 import Header from './components/Header'
@@ -19,6 +21,7 @@ import PostPage from './pages/PostPage'
 import BlogPage from './pages/BlogPage'
 import ContatoPage from './pages/ContatoPage'
 import NotFoundPage from './pages/NotFoundPage'
+import PrivacidadePage from './pages/PrivacidadePage'
 
 function Home() {
   // Chegando de outra página em /#secao, o navegador tenta rolar antes do React montar a seção.
@@ -58,18 +61,23 @@ function useScrollTopOnNavigate() {
   const { pathname } = useLocation()
   useEffect(() => {
     if (!location.hash) lenis.scrollTo(0, { immediate: true, force: true })
+    rastrear('PageView')
   }, [pathname])
 }
 
 export default function App() {
   useScrollTopOnNavigate()
   return (
+    <>
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/blog/" element={<BlogPage />} />
       <Route path="/blog/:slug" element={<PostPage />} />
       <Route path="/contato/" element={<ContatoPage />} />
+      <Route path="/privacidade/" element={<PrivacidadePage />} />
       <Route path="*" element={<NotFoundPage />} />
     </Routes>
+    <ConsentBanner />
+    </>
   )
 }

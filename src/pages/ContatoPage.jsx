@@ -6,6 +6,7 @@ import Footer from '../components/Footer'
 import Reveal from '../components/Reveal'
 import LineReveal from '../components/motion/LineReveal'
 import ImageReveal from '../components/motion/ImageReveal'
+import { rastrear } from '../lib/pixel'
 import {
   whatsappLink, WHATSAPP_URL, WHATSAPP_EXIBICAO, INSTAGRAM_URL, ENDERECO, MAPA_URL, MAPA_EMBED,
 } from '../data/contato'
@@ -42,6 +43,7 @@ function enviar(e) {
     mensagem && `Mensagem: ${mensagem}`,
   ]
   const url = whatsappLink(linhas.filter(Boolean).join('\n'))
+  rastrear('Lead') // sem nenhum dado do formulário
   const aba = window.open(url, '_blank')
   // Sem 'noopener' o retorno indica se a aba abriu; navegadores internos (Instagram/Facebook)
   // e bloqueadores de pop-up devolvem null, e aí seguimos na mesma aba para não perder o contato.
