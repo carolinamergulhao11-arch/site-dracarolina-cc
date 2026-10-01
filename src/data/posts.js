@@ -6,8 +6,8 @@ export const POSTS = [
     excerpt: 'Perder peso rápido demais, sem acompanhamento adequado, frequentemente significa perder músculo junto com a gordura. Entenda por que isso acontece e como um tratamento bem conduzido ajuda a prevenir o efeito sanfona.',
     description: 'Perder peso rápido demais pode significar perder músculo junto com a gordura. Entenda os riscos e como um tratamento bem conduzido ajuda a prevenir o efeito sanfona.',
     publicado: '2026-09-30',
-    image: '/assets/images/blog/post-emagrecimento-massa-muscular.webp',
-    imageAlt: 'Arte do artigo com ilustração anatômica de músculos, halteres e tapete de yoga em um ambiente claro',
+    image: '/assets/images/blog/post-emagrecimento-rapido-perda-massa-muscular.webp',
+    imageAlt: 'Arte do artigo com ilustração anatômica de músculo, um halter, uma garrafa e uma toalha dobrada sobre uma bancada',
     tags: ['emagrecimento', 'massa muscular', 'efeito sanfona', 'metabolismo', 'composição corporal'],
     sections: [
       {
