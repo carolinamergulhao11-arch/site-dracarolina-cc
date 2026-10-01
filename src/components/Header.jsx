@@ -59,7 +59,7 @@ export default function Header() {
       animate={{ y: hidden && !open ? '-100%' : 0, opacity: 1 }}
       transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
       className={`fixed top-0 inset-x-0 z-100 transition-colors duration-500 ${
-        light ? 'bg-transparent text-white' : 'bg-off/95 backdrop-blur-md text-verde-escuro border-b border-verde-escuro/10'
+        light ? 'bg-transparent text-white' : 'bg-off text-verde-escuro border-b border-verde-escuro/10'
       }`}
     >
       <a
@@ -75,7 +75,7 @@ export default function Header() {
             alt="Dra. Carolina Mergulhão"
             width={560}
             height={109}
-            className={`h-11 md:h-12 w-auto transition-[filter] duration-500 ${light ? 'brightness-0 invert' : ''}`}
+            className={`h-9 min-[360px]:h-11 md:h-12 w-auto transition-[filter] duration-500 ${light ? 'brightness-0 invert' : ''}`}
           />
         </Link>
         <ul className="hidden lg:flex lg:gap-8 xl:gap-10 text-[12px] tracking-[0.18em] uppercase font-medium">
