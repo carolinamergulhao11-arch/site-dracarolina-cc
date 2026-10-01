@@ -7,6 +7,7 @@ export const POSTS = [
     description: 'Perder peso rápido demais pode significar perder músculo junto com a gordura. Entenda os riscos e como um tratamento bem conduzido evita o efeito sanfona.',
     publicado: '2026-09-30',
     image: '/assets/images/blog/post-emagrecimento-massa-muscular.webp',
+    imageAlt: 'Arte do artigo com ilustração anatômica de músculos, halteres e tapete de yoga em um ambiente claro',
     tags: ['emagrecimento', 'massa muscular', 'efeito sanfona', 'metabolismo', 'composição corporal'],
     sections: [
       {
@@ -54,6 +55,7 @@ export const POSTS = [
     description: 'A queda hormonal da menopausa afeta peso, sono e disposição. Veja o que muda no metabolismo e como a terapia hormonal individualizada pode ajudar.',
     publicado: '2026-09-30',
     image: '/assets/images/blog/post-menopausa-metabolismo.webp',
+    imageAlt: 'Arte do artigo com ampulheta, halteres, tapete de yoga, tigela de frutas e caderno sobre uma mesa de mármore',
     tags: ['menopausa', 'saúde da mulher', 'terapia hormonal', 'metabolismo', 'qualidade de vida'],
     sections: [
       {
@@ -101,6 +103,7 @@ export const POSTS = [
     description: 'Músculo é metabolismo ativo, proteção óssea e qualidade de vida. Entenda por que preservar massa muscular é prioridade no tratamento do emagrecimento.',
     publicado: '2026-09-30',
     image: '/assets/images/blog/post-composicao-corporal.webp',
+    imageAlt: 'Arte do artigo com halteres sobre um tapete de treino, ao lado de uma garrafa e de plantas',
     tags: ['massa muscular', 'composição corporal', 'suplementação proteica', 'longevidade', 'força'],
     sections: [
       {
@@ -147,6 +150,7 @@ export const POSTS = [
     description: 'Cortisol elevado e noites mal dormidas dificultam a perda de peso, mesmo com dieta e exercício em dia. Entenda a relação entre sono, estresse e peso.',
     publicado: '2026-09-30',
     image: '/assets/images/blog/post-sono-estresse.webp',
+    imageAlt: 'Arte do artigo com máscara de dormir, livros e uma caneca sobre uma cama',
     tags: ['sono', 'estresse', 'cortisol', 'metabolismo', 'emagrecimento'],
     sections: [
       {

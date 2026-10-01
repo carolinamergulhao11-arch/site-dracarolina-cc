@@ -30,7 +30,7 @@ export default function Blog() {
           <Reveal className="md:col-span-7">
             <Link to={`/blog/${destaque.slug}/`} className="group block">
               <div className="overflow-hidden mb-7">
-                <img src={destaque.image} srcSet={srcsetArte(destaque.image)} sizes="(min-width: 768px) 58vw, 100vw" alt={destaque.title} loading="lazy" className={`w-full aspect-video object-cover ${ZOOM}`} />
+                <img src={destaque.image} srcSet={srcsetArte(destaque.image)} sizes="(min-width: 768px) 58vw, 100vw" alt="" loading="lazy" className={`w-full aspect-video object-cover ${ZOOM}`} />
               </div>
               <div className="eyebrow text-verde-oliva mb-4">{destaque.category}</div>
               <h3 className="text-[clamp(1.5rem,2.4vw,2.1rem)] leading-snug text-verde-escuro mb-4 max-w-2xl group-hover:text-verde-oliva transition-colors">
@@ -45,7 +45,7 @@ export default function Blog() {
               <Reveal as="li" key={post.slug} delay={0.1 + i * 0.08} className="border-t border-verde-escuro/15 last:border-b">
                 <Link to={`/blog/${post.slug}/`} className="group grid grid-cols-[8.5rem_minmax(0,1fr)] sm:grid-cols-[11rem_minmax(0,1fr)] gap-5 py-6">
                   <div className="overflow-hidden self-start">
-                    <img src={post.image} srcSet={srcsetArte(post.image)} sizes="(min-width: 640px) 176px, 136px" alt={post.title} loading="lazy" className={`w-full aspect-video object-cover ${ZOOM}`} />
+                    <img src={post.image} srcSet={srcsetArte(post.image)} sizes="(min-width: 640px) 176px, 136px" alt="" loading="lazy" className={`w-full aspect-video object-cover ${ZOOM}`} />
                   </div>
                   <div>
                     <div className="eyebrow text-[0.62rem] text-verde-oliva mb-2.5">{post.category}</div>

@@ -5,6 +5,7 @@ import { createHash } from 'node:crypto'
 import { POSTS, srcsetArte } from '../src/data/posts.js'
 import { PERGUNTAS } from '../src/data/faq.js'
 import { SEO, MARCA, tituloDoPost } from '../src/data/seo.js'
+import { MAPA_URL } from '../src/data/contato.js'
 
 const SITE = 'https://dracarolinamergulhao.com.br'
 const SITE_NAME = MARCA
@@ -60,9 +61,13 @@ function seoBlock({ title, description, path, image, type, jsonLd = [], preload,
   ].filter(Boolean).join('\n')
 }
 
+// @id estável: os artigos apontam para a mesma entidade (autoria) sem repetir os dados
+const PHYSICIAN_ID = SITE + '/#medico'
+
 const physician = {
   '@context': 'https://schema.org',
   '@type': 'Physician',
+  '@id': PHYSICIAN_ID,
   name: 'Dra. Carolina Mergulhão',
   alternateName: 'Carolina de Abreu Gonçalves Mergulhão',
   description: 'Endocrinologista e metabologista em São Paulo. Tratamento individualizado de emagrecimento, obesidade e saúde hormonal.',
@@ -70,6 +75,7 @@ const physician = {
   image: ogImage(OG_IMAGE),
   medicalSpecialty: 'Endocrine',
   telephone: '+5511976481629',
+  hasMap: MAPA_URL,
   address: {
     '@type': 'PostalAddress',
     streetAddress: 'R. da Consolação, 3741 - 12º andar - Cerqueira César',
@@ -195,11 +201,20 @@ const routes = [
         keywords: post.tags.join(', '),
         articleSection: post.category,
         inLanguage: 'pt-BR',
-        author: { '@type': 'Person', name: SITE_NAME, jobTitle: 'Endocrinologista e Metabologista', url: SITE + '/' },
+        author: { '@type': 'Person', '@id': PHYSICIAN_ID, name: SITE_NAME, jobTitle: 'Endocrinologista e Metabologista', url: SITE + '/' },
         publisher: { '@type': 'Organization', name: SITE_NAME, logo: { '@type': 'ImageObject', url: `${SITE}/assets/logos/logo-horizontal.png` } },
         mainEntityOfPage: `${SITE}/blog/${post.slug}/`,
+      }, {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Início', item: SITE + '/' },
+          { '@type': 'ListItem', position: 2, name: 'Blog', item: `${SITE}/blog/` },
+          { '@type': 'ListItem', position: 3, name: post.title, item: `${SITE}/blog/${post.slug}/` },
+        ],
       }],
     }),
+    lastmod: post.atualizado ?? post.publicado,
   })),
 ]
 
@@ -208,10 +223,12 @@ for (const r of routes) {
   writeFileSync(r.file, render(r.block))
 }
 
-const today = new Date().toISOString().slice(0, 10)
+// lastmod só onde há uma data de verdade (a do conteúdo); com a data do build, o Google passa a ignorá-lo
+const maisRecente = POSTS.map((p) => p.atualizado ?? p.publicado).sort().at(-1)
+routes.find((r) => r.path === '/blog/').lastmod = maisRecente
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${routes.map((r) => `  <url><loc>${SITE}${r.path}</loc><lastmod>${today}</lastmod></url>`).join('\n')}
+${routes.map((r) => `  <url><loc>${SITE}${r.path}</loc>${r.lastmod ? `<lastmod>${r.lastmod}</lastmod>` : ''}</url>`).join('\n')}
 </urlset>
 `
 writeFileSync(`${DIST}/sitemap.xml`, sitemap)

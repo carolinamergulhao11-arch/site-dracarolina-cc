@@ -34,18 +34,21 @@ export default function Hero() {
       />
 
       <motion.div style={{ opacity: fade }} className="relative z-10 max-w-[1400px] mx-auto w-full px-6 md:px-10 pb-16 md:pb-20">
-        {/* Entrada só com deslocamento, sem opacity 0: conteúdo visível desde o 1º quadro (LCP) */}
-        <motion.div
-          initial={{ y: 10 }}
-          animate={{ y: 0 }}
-          transition={{ duration: 1, ease: EASE }}
-          className="eyebrow text-bege-claro mb-6"
-        >
-          Endocrinologia &amp; Metabologia · São Paulo
-        </motion.div>
+        {/* O rótulo faz parte do H1 (palavra-chave "Endocrinologia · São Paulo"), com o mesmo visual de antes.
+            Entrada só com deslocamento, sem opacity 0: conteúdo visível desde o 1º quadro (LCP) */}
         <LineReveal
           as="h1"
           immediate
+          before={
+            <motion.span
+              initial={{ y: 10 }}
+              animate={{ y: 0 }}
+              transition={{ duration: 1, ease: EASE }}
+              className="eyebrow block font-sans leading-normal text-bege-claro mb-6"
+            >
+              Endocrinologia &amp; Metabologia · São Paulo
+            </motion.span>
+          }
           lines={['Muito além', 'da balança']}
           className="uppercase text-display max-w-4xl mb-8"
         />
