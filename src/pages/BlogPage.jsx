@@ -72,7 +72,7 @@ export default function BlogPage() {
           >
             <Link to={`/blog/${destaque.slug}/`} className="group grid md:grid-cols-12 gap-8 md:gap-12 items-center mb-16 md:mb-24">
               <div className="md:col-span-7 overflow-hidden">
-                <img src={destaque.image} srcSet={srcsetArte(destaque.image)} sizes="(min-width: 768px) 58vw, 100vw" alt="" fetchPriority="high" className={`w-full aspect-video object-cover ${ZOOM}`} />
+                <img src={destaque.image} srcSet={srcsetArte(destaque.image)} sizes="(min-width: 768px) 58vw, 100vw" alt="" fetchPriority="high" className={`w-full aspect-[1734/907] object-cover ${ZOOM}`} />
               </div>
               <div className="md:col-span-5">
                 <div className="eyebrow text-verde-oliva mb-4">{destaque.category}</div>

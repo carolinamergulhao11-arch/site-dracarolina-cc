@@ -120,7 +120,7 @@ function Post({ post }) {
         <header className="max-w-[1400px] mx-auto px-6 md:px-10 grid md:grid-cols-12 gap-10 md:gap-12 items-center pb-16 md:pb-24 border-b border-verde-escuro/15">
           {/* Sem zoom: as artes têm texto na borda, que o recorte do ImageReveal cortaria */}
           <Reveal className="md:col-span-6 md:order-2">
-            <img src={post.image} alt={post.imageAlt} fetchPriority="high" className="w-full aspect-video object-cover" />
+            <img src={post.image} alt={post.imageAlt} fetchPriority="high" className="w-full aspect-[1734/907] object-cover" />
           </Reveal>
           <div className="md:col-span-6 md:order-1">
             <Reveal className="flex items-center gap-4 mb-8 text-[12px]">
