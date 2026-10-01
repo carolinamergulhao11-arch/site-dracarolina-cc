@@ -19,7 +19,7 @@ const ETAPAS = [
   },
   {
     title: 'Acompanhamento contínuo',
-    text: 'Consultas de retorno para ajustar o plano conforme a resposta do corpo, garantindo resultado sustentável e sem efeito sanfona.',
+    text: 'Consultas de retorno para ajustar o plano conforme a resposta do corpo, com foco em resultados duradouros e na prevenção do efeito sanfona.',
   },
 ]
 
@@ -58,7 +58,7 @@ export default function Metodo() {
         <div className="md:col-span-5 md:sticky md:top-28 md:self-start md:h-[calc(100svh-14rem)] flex flex-col">
           <Reveal className="eyebrow text-bege-claro mb-6">Como funciona</Reveal>
           <LineReveal lines={['Método', 'Dra. Carolina', 'Mergulhão']} className="uppercase text-section mb-6" />
-          <Reveal delay={0.1} className="text-creme/70 mb-10">Quatro etapas para transformar sua vida.</Reveal>
+          <Reveal delay={0.1} className="text-creme/70 mb-10">Quatro etapas de um acompanhamento pensado para o seu caso.</Reveal>
 
           <div className="hidden md:flex items-center gap-5 mt-auto mb-10">
             <div className="font-serif text-xl w-16 overflow-hidden h-7 relative">
@@ -86,7 +86,7 @@ export default function Metodo() {
               to="/contato/"
               className="inline-block rounded-full bg-creme text-verde-escuro px-9 py-4 text-[12px] font-semibold uppercase tracking-[0.16em] transition-all hover:bg-white hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-creme"
             >
-              Iniciar meu tratamento
+              Começar pela avaliação
             </Link>
           </Reveal>
         </div>

@@ -1,7 +1,7 @@
 export const PERGUNTAS = [
   {
     q: 'O tratamento medicamentoso para emagrecimento é seguro?',
-    a: 'Sim, quando prescrito e acompanhado por um médico endocrinologista. A Dra. Carolina avalia cada caso individualmente, com acompanhamento contínuo dos efeitos e ajustes de dose ao longo do tratamento.',
+    a: 'Quando bem indicado e acompanhado de perto por um médico endocrinologista, o tratamento tem perfil de segurança conhecido. A Dra. Carolina avalia cada caso individualmente, com acompanhamento contínuo dos efeitos e ajustes de dose ao longo do tratamento.',
   },
   {
     q: 'Emagrecer rápido é sempre bom?',
@@ -25,7 +25,7 @@ export const PERGUNTAS = [
   },
   {
     q: 'Músculo realmente importa tanto quanto dizem?',
-    a: 'Sim. Massa muscular é metabolismo ativo: quanto mais músculo, mais eficiente é a queima calórica e a proteção contra o efeito sanfona. É por isso que preservar músculo é parte central do tratamento, não um detalhe.',
+    a: 'Sim. Massa muscular é metabolismo ativo: quanto mais músculo, mais eficiente é a queima calórica e menor o risco de efeito sanfona. É por isso que preservar músculo é parte central do tratamento, não um detalhe.',
   },
   {
     q: 'O estresse realmente atrapalha o emagrecimento?',

@@ -90,7 +90,7 @@ function Formulario() {
         Enviar pelo WhatsApp
       </button>
       <p className="mt-5 text-center text-[13px] text-verde-escuro/50">
-        O WhatsApp abre com a mensagem pronta. Nenhum dado fica salvo no site.
+        Seus dados não ficam salvos no site.
       </p>
     </form>
   )

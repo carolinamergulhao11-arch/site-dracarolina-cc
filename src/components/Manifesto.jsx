@@ -1,7 +1,7 @@
 import { useRef } from 'react'
 import { motion, useScroll, useTransform, useReducedMotion } from 'framer-motion'
 
-const FRASE = 'O peso é só a parte visível. Tratamos o metabolismo, os hormônios, o sono e a massa muscular que estão por trás dele.'
+const FRASE = 'O peso é só a parte visível. O tratamento olha para o metabolismo, os hormônios, o sono e a massa muscular que estão por trás dele.'
 const WORDS = FRASE.split(' ')
 
 function Word({ children, progress, range }) {

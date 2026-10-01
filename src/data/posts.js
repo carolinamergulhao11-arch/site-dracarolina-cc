@@ -3,8 +3,8 @@ export const POSTS = [
     slug: 'emagrecimento-massa-muscular',
     category: 'Emagrecimento',
     title: 'Emagrecimento rápido pode custar sua massa muscular',
-    excerpt: 'Perder peso rápido demais, sem acompanhamento adequado, frequentemente significa perder músculo junto com a gordura. Entenda por que isso acontece e como um tratamento bem conduzido evita o efeito sanfona.',
-    description: 'Perder peso rápido demais pode significar perder músculo junto com a gordura. Entenda os riscos e como um tratamento bem conduzido evita o efeito sanfona.',
+    excerpt: 'Perder peso rápido demais, sem acompanhamento adequado, frequentemente significa perder músculo junto com a gordura. Entenda por que isso acontece e como um tratamento bem conduzido ajuda a prevenir o efeito sanfona.',
+    description: 'Perder peso rápido demais pode significar perder músculo junto com a gordura. Entenda os riscos e como um tratamento bem conduzido ajuda a prevenir o efeito sanfona.',
     publicado: '2026-09-30',
     image: '/assets/images/blog/post-emagrecimento-massa-muscular.webp',
     imageAlt: 'Arte do artigo com ilustração anatômica de músculos, halteres e tapete de yoga em um ambiente claro',
@@ -13,7 +13,7 @@ export const POSTS = [
       {
         heading: 'Nem toda perda de peso é a mesma',
         paragraphs: [
-          'Duas pessoas podem perder os mesmos 8kg em um mês e sair do processo em situações completamente diferentes. Uma perdeu principalmente gordura e manteve a força. A outra perdeu uma parte relevante de massa muscular junto com a gordura, e sai do processo mais fraca, com o metabolismo mais lento do que antes de começar.',
+          'Duas pessoas podem perder os mesmos 8 kg em um mês e sair do processo em situações completamente diferentes. Uma perdeu principalmente gordura e manteve a força. A outra perdeu uma parte relevante de massa muscular junto com a gordura, e sai do processo mais fraca, com o metabolismo mais lento do que antes de começar.',
           'A diferença não está só na quantidade de peso perdido, mas na composição dessa perda. E isso é definido, em grande parte, pela velocidade e pela forma como o emagrecimento é conduzido.',
         ],
       },
@@ -34,7 +34,7 @@ export const POSTS = [
       {
         heading: 'Por que o acompanhamento médico muda esse cenário',
         paragraphs: [
-          'Um tratamento bem conduzido não olha apenas para o ponteiro da balança. Ele considera ingestão proteica adequada, ajuste individualizado de calorias, e acompanhamento da composição corporal ao longo do processo, não só do peso total.',
+          'Um tratamento bem conduzido não olha apenas para o ponteiro da balança. Ele considera ingestão proteica adequada, ajuste individualizado de calorias e acompanhamento da composição corporal ao longo do processo, não só do peso total.',
           'Quando indicada, a terapia farmacológica para emagrecimento também precisa vir acompanhada dessas estratégias. O medicamento ajuda a reduzir o apetite e facilitar a adesão, mas não substitui a atenção à preservação muscular durante a perda de peso.',
         ],
       },
@@ -68,7 +68,7 @@ export const POSTS = [
       {
         heading: 'Por que o peso muda mesmo sem mudar hábitos',
         paragraphs: [
-          'O estrogênio influencia onde o corpo armazena gordura. Na pré-menopausa, a tendência é acumular gordura no quadril e coxas. Com a queda hormonal, esse padrão muda para a região abdominal, metabolicamente mais ativa e associada a maior risco cardiovascular.',
+          'O estrogênio influencia onde o corpo armazena gordura. Na pré-menopausa, a tendência é acumular gordura no quadril e nas coxas. Com a queda hormonal, esse padrão muda para a região abdominal, metabolicamente mais ativa e associada a maior risco cardiovascular.',
           'Além disso, a queda hormonal está associada à redução da taxa metabólica basal e à perda progressiva de massa muscular, dois fatores que, juntos, tornam mais fácil ganhar peso e mais difícil perdê-lo.',
         ],
       },
@@ -169,7 +169,7 @@ export const POSTS = [
       {
         heading: 'Sono ruim, apetite descontrolado',
         paragraphs: [
-          'Noites maldormidas alteram diretamente dois hormônios que regulam a fome: a grelina, que aumenta o apetite, sobe; e a leptina, que sinaliza saciedade, cai. O resultado prático é sentir mais fome e menos saciedade no dia seguinte a uma noite ruim de sono, independente de força de vontade.',
+          'Noites maldormidas alteram diretamente dois hormônios que regulam a fome: a grelina, que aumenta o apetite, sobe; e a leptina, que sinaliza saciedade, cai. O resultado prático é sentir mais fome e menos saciedade no dia seguinte a uma noite ruim de sono, independentemente da força de vontade.',
           'Além disso, o sono insuficiente reduz a disposição para atividade física e prejudica a recuperação muscular, afetando também a composição corporal, não apenas o peso na balança.',
         ],
       },
