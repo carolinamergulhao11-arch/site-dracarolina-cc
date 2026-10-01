@@ -54,8 +54,8 @@ export const POSTS = [
     excerpt: 'A queda hormonal da menopausa afeta diretamente o peso, o sono e a disposição. Veja como a terapia hormonal individualizada pode ajudar a atravessar essa fase com mais qualidade de vida.',
     description: 'A queda hormonal da menopausa afeta peso, sono e disposição. Veja o que muda no metabolismo e como a terapia hormonal individualizada pode ajudar.',
     publicado: '2026-09-30',
-    image: '/assets/images/blog/post-menopausa-metabolismo.webp',
-    imageAlt: 'Arte do artigo com ampulheta, halteres, tapete de yoga, tigela de frutas e caderno sobre uma mesa de mármore',
+    image: '/assets/images/blog/post-menopausa-metabolismo-como-tratar.webp',
+    imageAlt: 'Arte do artigo com livros de saúde empilhados, uma caneca, óculos e um vaso de flores sobre uma mesa de mármore',
     tags: ['menopausa', 'saúde da mulher', 'terapia hormonal', 'metabolismo', 'qualidade de vida'],
     sections: [
       {
@@ -102,8 +102,8 @@ export const POSTS = [
     excerpt: 'Músculo não é só estética: é metabolismo ativo, proteção óssea e qualidade de vida a longo prazo. Saiba como a suplementação proteica orientada entra no plano de tratamento.',
     description: 'Músculo é metabolismo ativo, proteção óssea e qualidade de vida. Entenda por que preservar massa muscular é prioridade no tratamento do emagrecimento.',
     publicado: '2026-09-30',
-    image: '/assets/images/blog/post-composicao-corporal.webp',
-    imageAlt: 'Arte do artigo com halteres sobre um tapete de treino, ao lado de uma garrafa e de plantas',
+    image: '/assets/images/blog/post-preservar-massa-muscular-prioridade-no-tratamento.webp',
+    imageAlt: 'Arte do artigo com halteres sobre um tapete de treino, ao lado de uma garrafa, uma tigela de legumes e plantas',
     tags: ['massa muscular', 'composição corporal', 'suplementação proteica', 'longevidade', 'força'],
     sections: [
       {
@@ -149,8 +149,8 @@ export const POSTS = [
     excerpt: 'Cortisol elevado e noites mal dormidas dificultam a perda de peso, mesmo com dieta e exercício em dia. Entenda a relação entre metabolismo, sono e estresse no tratamento.',
     description: 'Cortisol elevado e noites mal dormidas dificultam a perda de peso, mesmo com dieta e exercício em dia. Entenda a relação entre sono, estresse e peso.',
     publicado: '2026-09-30',
-    image: '/assets/images/blog/post-sono-estresse.webp',
-    imageAlt: 'Arte do artigo com máscara de dormir, livros e uma caneca sobre uma cama',
+    image: '/assets/images/blog/post-sono-ruim-estresse-cronico-emagrecimento.webp',
+    imageAlt: 'Arte do artigo com uma máscara de dormir sobre a mesa de cabeceira, ao lado de um copo de água, uma planta e um abajur',
     tags: ['sono', 'estresse', 'cortisol', 'metabolismo', 'emagrecimento'],
     sections: [
       {
