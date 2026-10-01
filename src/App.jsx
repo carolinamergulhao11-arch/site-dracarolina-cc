@@ -22,6 +22,8 @@ import BlogPage from './pages/BlogPage'
 import ContatoPage from './pages/ContatoPage'
 import NotFoundPage from './pages/NotFoundPage'
 import PrivacidadePage from './pages/PrivacidadePage'
+import PaginaTema from './pages/PaginaTema'
+import { PAGINAS } from './data/paginas'
 
 function Home() {
   // Chegando de outra página em /#secao, o navegador tenta rolar antes do React montar a seção.
@@ -75,6 +77,7 @@ export default function App() {
       <Route path="/blog/:slug" element={<PostPage />} />
       <Route path="/contato/" element={<ContatoPage />} />
       <Route path="/privacidade/" element={<PrivacidadePage />} />
+      {PAGINAS.map((p) => <Route key={p.slug} path={`/${p.slug}/`} element={<PaginaTema slug={p.slug} />} />)}
       <Route path="*" element={<NotFoundPage />} />
     </Routes>
     <ConsentBanner />

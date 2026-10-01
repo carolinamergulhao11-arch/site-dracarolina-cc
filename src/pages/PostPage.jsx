@@ -11,6 +11,7 @@ import { tituloDoPost } from '../data/seo'
 import PostCard from '../components/PostCard'
 import CtaConsulta from '../components/CtaConsulta'
 import { POSTS, getPostBySlug } from '../data/posts'
+import { getPagina } from '../data/paginas'
 import { lenis } from '../lib/lenis'
 import { rastrear } from '../lib/pixel'
 
@@ -81,6 +82,7 @@ function Post({ post }) {
   const [ativa, setAtiva] = useState(0)
   const { scrollYProgress } = useScroll()
   const related = POSTS.filter(p => p.slug !== post.slug).slice(0, 3)
+  const tema = getPagina(post.pagina)
 
   // Link compartilhado com #seção: o HTML já traz as seções, então o próprio navegador rola até elas
   // (com scroll-mt-28 deixando a folga do cabeçalho); não precisa de rolagem por JavaScript.
@@ -158,9 +160,9 @@ function Post({ post }) {
                   Formada pela UFRJ, especialista pela SBEM desde 2007, com formação em Nutrologia e Medicina Integrativa.
                   Transforma ciência em tratamento individualizado, muito além da balança.
                 </p>
-                <a href="/#sobre" className="inline-block py-2 -my-2 text-sm underline underline-offset-4 decoration-verde-escuro/30 hover:decoration-verde-escuro">
+                <Link to="/sobre/" className="inline-block py-2 -my-2 text-sm underline underline-offset-4 decoration-verde-escuro/30 hover:decoration-verde-escuro">
                   Conheça a Dra. Carolina
-                </a>
+                </Link>
               </div>
             </Reveal>
           </div>
@@ -191,6 +193,17 @@ function Post({ post }) {
             <Compartilhar post={post} />
           </aside>
         </div>
+
+        {tema && (
+          <div className="max-w-[1400px] mx-auto px-6 md:px-10 pt-16 md:pt-20">
+            <Link to={`/${tema.slug}/`} className="group inline-flex items-center gap-4 py-2 -my-2 eyebrow text-verde-escuro">
+              <span className="relative pb-1 after:absolute after:inset-x-0 after:bottom-0 after:h-px after:bg-current after:origin-left after:transition-transform after:duration-500 group-hover:after:scale-x-0">
+                Saiba mais: {tema.menu}
+              </span>
+              <span className="transition-transform duration-500 group-hover:translate-x-2">→</span>
+            </Link>
+          </div>
+        )}
 
         <div className="max-w-[1400px] mx-auto px-6 md:px-10 pt-24 md:pt-32">
           <CtaConsulta />
