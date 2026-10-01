@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Seo from '../components/Seo'
 import { SEO } from '../data/seo'
 import Header from '../components/Header'
@@ -25,27 +25,40 @@ const CAMPO = 'w-full rounded-2xl border border-bege-claro/70 bg-off/70 px-5 py-
 function enviar(e) {
   e.preventDefault()
   const dados = new FormData(e.currentTarget)
+  const nome = dados.get('nome').trim()
+  if (nome.length < 2) {
+    // required/minLength aceitam só espaços; o trim torna o campo inválido de fato
+    const campo = e.currentTarget.elements.nome
+    campo.setCustomValidity('Informe seu nome completo.')
+    campo.reportValidity()
+    return
+  }
   const assunto = dados.get('assunto')
   const mensagem = dados.get('mensagem').trim()
   const linhas = [
     'Olá! Vim pelo site e gostaria de agendar uma avaliação.',
-    `Nome: ${dados.get('nome').trim()}`,
+    `Nome: ${nome}`,
     assunto && `Assunto: ${assunto}`,
     mensagem && `Mensagem: ${mensagem}`,
   ]
-  window.open(whatsappLink(linhas.filter(Boolean).join('\n')), '_blank', 'noopener')
+  const url = whatsappLink(linhas.filter(Boolean).join('\n'))
+  const aba = window.open(url, '_blank')
+  // Sem 'noopener' o retorno indica se a aba abriu; navegadores internos (Instagram/Facebook)
+  // e bloqueadores de pop-up devolvem null, e aí seguimos na mesma aba para não perder o contato.
+  if (aba) aba.opener = null
+  else window.location.href = url
 }
 
 function Formulario() {
   return (
     <form onSubmit={enviar} className="bg-white border border-verde-escuro/10 rounded-3xl p-7 md:p-12 shadow-[0_30px_60px_-30px_rgba(36,64,58,0.25)]">
       <h2 className="font-sans tracking-normal text-2xl font-semibold text-verde-escuro mb-2">Envie sua mensagem</h2>
-      <p className="text-verde-escuro/65 mb-9">Preencha os campos e a conversa abre no WhatsApp com tudo pronto.</p>
+      <p className="text-verde-escuro/65 mb-9">Preencha os campos e continue a conversa pelo WhatsApp. Campos com * são obrigatórios.</p>
 
       <div className="space-y-6">
         <div>
           <label htmlFor="nome" className={LABEL}>Nome completo *</label>
-          <input id="nome" name="nome" required minLength={2} autoComplete="name" placeholder="Seu nome completo" className={CAMPO} />
+          <input id="nome" name="nome" required minLength={2} autoComplete="name" onInput={(e) => e.currentTarget.setCustomValidity('')} placeholder="Seu nome completo" className={CAMPO} />
         </div>
 
         <div>
@@ -86,11 +99,15 @@ function Formulario() {
 // O iframe do Google Maps dispara ~17 requisições externas; só carrega quando a pessoa pede.
 function Mapa() {
   const [ativo, setAtivo] = useState(false)
+  const mapaRef = useRef(null)
+  // O botão some quando o mapa entra; sem isso o foco do teclado cairia no <body>.
+  useEffect(() => { if (ativo) mapaRef.current?.focus() }, [ativo])
   const altura = 'w-full h-[360px] md:h-[440px]'
 
   if (ativo) {
     return (
       <iframe
+        ref={mapaRef}
         title="Localização do consultório"
         src={MAPA_EMBED}
         referrerPolicy="no-referrer-when-downgrade"
@@ -136,7 +153,7 @@ export default function ContatoPage() {
     <>
       <Seo title={SEO.contato.title} />
       <Header />
-      <main className="bg-off pt-36 md:pt-48">
+      <main id="conteudo" className="bg-off pt-36 md:pt-48">
         <div className="max-w-[1400px] mx-auto px-6 md:px-10 grid md:grid-cols-12 gap-14 md:gap-8">
           <div className="md:col-span-5">
             <Reveal className="eyebrow text-verde-oliva mb-6">Contato</Reveal>

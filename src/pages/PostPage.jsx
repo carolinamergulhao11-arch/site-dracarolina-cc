@@ -29,7 +29,7 @@ function Secao({ section, index, onActive }) {
   }, [inView, index, onActive])
 
   return (
-    <section ref={ref} id={slugify(section.heading)} className="mb-14 md:mb-16">
+    <section ref={ref} id={slugify(section.heading)} className="mb-14 md:mb-16 scroll-mt-28">
       <Reveal>
         <div className="font-serif text-3xl text-bege-claro mb-3">{String(index + 1).padStart(2, '0')}</div>
         <h2 className="font-sans tracking-normal text-[clamp(1.35rem,2vw,1.7rem)] font-medium leading-snug text-verde-escuro mb-6">
@@ -78,10 +78,32 @@ function Post({ post }) {
   const { scrollYProgress } = useScroll()
   const related = POSTS.filter(p => p.slug !== post.slug).slice(0, 3)
 
+  // Link compartilhado com #seção (índice do artigo) abre direto na seção.
+  useEffect(() => {
+    if (!location.hash) return
+    // Espera o Lenis medir a altura da página; sem isso o limite de rolagem ainda é zero.
+    const t = setTimeout(() => {
+      try {
+        const el = document.getElementById(decodeURIComponent(location.hash.slice(1)))
+        if (el) {
+          lenis.resize()
+          lenis.scrollTo(el.getBoundingClientRect().top + window.scrollY - 110, { immediate: true })
+        }
+      } catch {
+        // hash malformado: ignora
+      }
+    }, 200)
+    return () => clearTimeout(t)
+  }, [])
+
   function irPara(e, id) {
     e.preventDefault()
+    // O Lenis (opção anchors) também trata cliques em #âncora; sem isso os dois scrollTo disputam
+    // e a rolagem para antes da seção.
+    e.stopPropagation()
     const el = document.getElementById(id)
-    if (el) lenis.scrollTo(el, { offset: -110 })
+    // Alvo numérico: com elemento, o Lenis também soma o scroll-margin da seção e para antes.
+    if (el) lenis.scrollTo(el.getBoundingClientRect().top + window.scrollY - 110)
     history.replaceState(null, '', `#${id}`)
   }
 
@@ -89,6 +111,7 @@ function Post({ post }) {
     <>
       <motion.div style={{ scaleX: scrollYProgress }} className="fixed top-0 inset-x-0 h-0.5 bg-bege-claro origin-left z-[110]" aria-hidden="true" />
 
+      <main id="conteudo">
       <article className="bg-off pt-28 md:pt-40">
         {/* Topo: título à esquerda, arte à direita */}
         <header className="max-w-[1400px] mx-auto px-6 md:px-10 grid md:grid-cols-12 gap-10 md:gap-12 items-center pb-16 md:pb-24 border-b border-verde-escuro/15">
@@ -191,6 +214,7 @@ function Post({ post }) {
           </div>
         )}
       </article>
+      </main>
     </>
   )
 }

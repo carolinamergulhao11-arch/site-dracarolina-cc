@@ -114,7 +114,7 @@ const CSP = [
 const CHARSET = '<meta charset="UTF-8">'
 if (!template.includes(CHARSET)) throw new Error('meta charset não encontrado em dist/index.html')
 const SEGURANCA = `${CHARSET}\n<meta http-equiv="Content-Security-Policy" content="${CSP}">\n<meta name="referrer" content="strict-origin-when-cross-origin">`
-const render = (block) => template.replace(MARKER, block).replace(CHARSET, SEGURANCA)
+const render = (block) => template.replace(MARKER, () => block).replace(CHARSET, () => SEGURANCA)
 
 const routes = [
   {

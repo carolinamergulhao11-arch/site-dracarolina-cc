@@ -32,7 +32,7 @@ export default function Faq() {
                   type="button"
                   onClick={() => setOpen(isOpen ? null : i)}
                   aria-expanded={isOpen}
-                  aria-controls={`faq-${i}`}
+                  aria-controls={isOpen ? `faq-${i}` : undefined}
                   className="w-full flex items-center justify-between gap-6 py-7 text-left text-[17px] font-medium text-verde-escuro hover:text-verde-oliva transition-colors"
                 >
                   {item.q}
