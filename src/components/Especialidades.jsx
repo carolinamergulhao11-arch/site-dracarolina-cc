@@ -15,11 +15,11 @@ const OUTRAS = [
   },
   {
     title: 'Sono e Recuperação',
-    text: 'Sono como pilar metabólico ativo no tratamento, não apenas descanso. Noites mal dormidas afetam hormônios, apetite e a resposta do corpo ao tratamento.',
+    text: 'Sono como pilar metabólico ativo no tratamento, não apenas descanso. Noites maldormidas afetam hormônios, apetite e a resposta do corpo ao tratamento.',
   },
   {
     title: 'Estresse e Cortisol',
-    text: 'Como o estresse crônico trava o emagrecimento e desequilibra o metabolismo. Entender essa relação é parte essencial de um tratamento que funciona de verdade.',
+    text: 'Como o estresse crônico trava o emagrecimento e desequilibra o metabolismo. Entender essa relação é parte essencial de um tratamento completo.',
   },
 ]
 
@@ -59,7 +59,7 @@ export default function Especialidades() {
         <div className="grid md:grid-cols-12 gap-10 md:gap-8 items-center mb-24 md:mb-36">
           <ImageReveal
             src="/assets/images/dra-carolina-mergulhao-macacao-verde-sorriso-aberto-editorial.webp"
-            alt="Dra. Carolina Mergulhão, especialista em emagrecimento e obesidade"
+            alt="Dra. Carolina Mergulhão, endocrinologista com atuação no tratamento da obesidade"
             pos="center top"
             className="md:col-span-6 aspect-[4/5]"
           />
@@ -77,11 +77,11 @@ export default function Especialidades() {
             </p>
             <p className="text-base leading-relaxed text-verde-escuro/65 mb-10">
               O foco é perder gordura preservando massa muscular, com um plano que considera hormônios, sono e
-              estresse para que o resultado se sustente.
+              estresse para favorecer resultados duradouros.
             </p>
             <Link to="/contato/" className="group inline-flex items-center gap-4 py-2 -my-2 eyebrow text-verde-escuro">
               <span className="relative pb-1 after:absolute after:inset-x-0 after:bottom-0 after:h-px after:bg-current after:origin-left after:transition-transform after:duration-500 group-hover:after:scale-x-0">
-                Agendar avaliação
+                Agendar consulta
               </span>
               <span className="transition-transform duration-500 group-hover:translate-x-2">→</span>
             </Link>

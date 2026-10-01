@@ -37,7 +37,7 @@ export default function Sobre() {
               Integrativa pela FAPES, construindo um olhar mais completo sobre obesidade, metabolismo e saúde hormonal.
             </p>
             <p className="text-lg leading-relaxed text-verde-escuro/85">
-              Especialista pela Sociedade Brasileira de Endocrinologia e Metabologia desde 2007 e membro ativa da
+              Especialista pela Sociedade Brasileira de Endocrinologia e Metabologia desde 2007 e membro ativo da
               instituição, transforma ciência em tratamento individualizado, muito além da balança.
             </p>
           </Reveal>

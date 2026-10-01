@@ -29,7 +29,7 @@ export default function NotFoundPage() {
               to="/blog/"
               className="text-center rounded-full border border-verde-escuro/30 text-verde-escuro px-9 py-4 text-[12px] font-semibold uppercase tracking-[0.16em] transition-all hover:border-verde-escuro"
             >
-              Ver o blog
+              Ler os artigos
             </Link>
             <Link
               to="/contato/"
