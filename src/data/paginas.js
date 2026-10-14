@@ -265,6 +265,7 @@ export const PAGINAS = [
     titulo: 'Dra. Carolina Mergulhão, endocrinologista em São Paulo',
     description: 'Conheça a Dra. Carolina Mergulhão, endocrinologista e metabologista em São Paulo: formação, especialização pela SBEM desde 2007 e forma de atender.',
     eyebrow: 'Sobre',
+    video: true,
     h1: ['Dra. Carolina', 'Mergulhão'],
     intro: [
       'Endocrinologista e metabologista, a Dra. Carolina Mergulhão atende em São Paulo com foco em emagrecimento, obesidade e saúde hormonal, sempre com um tratamento individualizado, muito além da balança.',
