@@ -7,6 +7,7 @@ import Reveal from '../components/Reveal'
 import LineReveal from '../components/motion/LineReveal'
 import PostCard from '../components/PostCard'
 import CtaConsulta from '../components/CtaConsulta'
+import VideoInstitucional from '../components/VideoInstitucional'
 import { PAGINAS, getPagina, tituloDaPagina } from '../data/paginas'
 import { POSTS } from '../data/posts'
 import { ENDERECO, MAPA_URL } from '../data/contato'
@@ -34,6 +35,8 @@ export default function PaginaTema({ slug }) {
             ))}
           </Reveal>
         </div>
+
+        {pagina.video && <VideoInstitucional comTitulo={false} />}
 
         {pagina.consultorio && (
           <div className={`${LARGURA} pb-20 md:pb-28`}>

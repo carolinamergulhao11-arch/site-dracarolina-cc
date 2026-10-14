@@ -9,6 +9,7 @@ import Header from './components/Header'
 import Hero from './components/Hero'
 import Manifesto from './components/Manifesto'
 import Sobre from './components/Sobre'
+import VideoInstitucional from './components/VideoInstitucional'
 import Especialidades from './components/Especialidades'
 import Galeria from './components/Galeria'
 import Metodo from './components/Metodo'
@@ -46,6 +47,7 @@ function Home() {
         <Manifesto />
         <Especialidades />
         <Sobre />
+        <VideoInstitucional />
         <Metodo />
         <Galeria />
         <Blog />

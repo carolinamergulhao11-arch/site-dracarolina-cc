@@ -10,6 +10,7 @@ import { PAGINAS, PUBLICADO, tituloDaPagina } from '../src/data/paginas.js'
 import { SEO, MARCA, tituloDoPost } from '../src/data/seo.js'
 import { MAPA_URL } from '../src/data/contato.js'
 import { HERO_FOTO } from '../src/data/imagens.js'
+import { VIDEO } from '../src/data/video.js'
 
 const SITE = 'https://dracarolinamergulhao.com.br'
 const SITE_NAME = MARCA
@@ -90,6 +91,19 @@ const physician = {
   sameAs: [INSTAGRAM],
 }
 
+const videoObject = {
+  '@context': 'https://schema.org',
+  '@type': 'VideoObject',
+  name: VIDEO.titulo,
+  description: VIDEO.descricao,
+  thumbnailUrl: SITE + VIDEO.posterJpg,
+  uploadDate: VIDEO.publicado,
+  duration: VIDEO.duracao,
+  contentUrl: SITE + VIDEO.src,
+  inLanguage: 'pt-BR',
+  author: { '@id': PHYSICIAN_ID },
+}
+
 const faqPage = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
@@ -144,7 +158,7 @@ const routes = [
       preload: HERO_FOTO.src,
       preloadSrcset: HERO_FOTO.srcSet,
       preloadSizes: HERO_FOTO.sizes,
-      jsonLd: [physician, faqPage],
+      jsonLd: [physician, faqPage, videoObject],
     }),
   },
   {
@@ -211,7 +225,7 @@ const routes = [
         path,
         image: OG_CARD,
         type: 'website',
-        jsonLd: [{
+        jsonLd: [...(pagina.video ? [videoObject] : []), {
           '@context': 'https://schema.org',
           '@type': pagina.slug === 'sobre' ? 'AboutPage' : 'MedicalWebPage',
           name: pagina.titulo,
