@@ -6,7 +6,7 @@ import LineReveal from './motion/LineReveal'
 
 const FOTOS = [
   { src: '/assets/images/dra-carolina-mergulhao-macacao-verde-sorrindo-editorial.webp', alt: 'Dra. Carolina Mergulhão sorrindo', pos: 'center 12%' },
-  { src: '/assets/images/dra-carolina-mergulhao-blazer-branco-verde-editorial.webp', alt: 'Dra. Carolina Mergulhão de blazer', pos: 'center 15%' },
+  { src: '/assets/images/dra-carolina-mergulhao-bracos-cruzados-editorial.webp', alt: 'Dra. Carolina Mergulhão de braços cruzados', pos: 'center 12%' },
   { src: '/assets/images/dra-carolina-mergulhao-notebook-oculos-editorial.webp', alt: 'Dra. Carolina Mergulhão trabalhando', pos: 'center 10%' },
   { src: '/assets/images/dra-carolina-mergulhao-com-pet-sorrindo-editorial.webp', alt: 'Dra. Carolina Mergulhão com seu pet', pos: 'center 15%' },
 ]
