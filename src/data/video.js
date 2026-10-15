@@ -9,7 +9,7 @@ export const VIDEO = {
   height: 900,
   titulo: 'Conheça a Dra. Carolina Mergulhão, endocrinologista em São Paulo',
   descricao: 'Apresentação da Dra. Carolina Mergulhão, endocrinologista e metabologista em São Paulo.',
-  alt: 'Dra. Carolina Mergulhão falando para a câmera, em vídeo de apresentação',
+  alt: 'Dra. Carolina Mergulhão sorrindo, de camisa verde, junto à janela do consultório',
   duracao: 'PT45S',
   publicado: '2026-10-14',
 }

@@ -24,7 +24,6 @@ function NavLink({ link, className, onClick }) {
 export default function Header() {
   const [open, setOpen] = useState(false)
   const [atTop, setAtTop] = useState(true)
-  const [hidden, setHidden] = useState(false)
   const botaoMenu = useRef(null)
   const { pathname } = useLocation()
   const { scrollY } = useScroll()
@@ -45,10 +44,8 @@ export default function Header() {
     }
   }, [open])
 
-  useMotionValueEvent(scrollY, 'change', y => {
-    setAtTop(y < 40)
-    setHidden(y > 300 && y > scrollY.getPrevious())
-  })
+  // Sempre visível ao rolar (o cliente achou que o cabeçalho "piscava" quando sumia e voltava).
+  useMotionValueEvent(scrollY, 'change', y => setAtTop(y < 40))
 
   // Transparente só sobre o hero da home; nas outras páginas e com o menu aberto, sólido.
   const light = pathname === '/' && atTop && !open
@@ -56,7 +53,7 @@ export default function Header() {
   return (
     <motion.header
       initial={{ y: -80, opacity: 0 }}
-      animate={{ y: hidden && !open ? '-100%' : 0, opacity: 1 }}
+      animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
       className={`fixed top-0 inset-x-0 z-100 transition-colors duration-500 ${
         light ? 'bg-transparent text-white' : 'bg-off text-verde-escuro border-b border-verde-escuro/10'
