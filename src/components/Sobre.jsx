@@ -16,15 +16,11 @@ export default function Sobre() {
       <div className="max-w-[1400px] mx-auto px-6 md:px-10 grid md:grid-cols-12 gap-12 md:gap-8">
         <div className="md:col-span-5 relative self-start">
           <ImageReveal
-            src="/assets/images/dra-carolina-mergulhao-bracos-cruzados-editorial.webp"
+            src="/assets/images/dra-carolina-mergulhao-blazer-branco-verde-editorial.webp"
             alt="Dra. Carolina Mergulhão, endocrinologista e metabologista em São Paulo"
-            pos="center 12%"
+            pos="center 15%"
             className="aspect-[3/4]"
           />
-          <Reveal delay={0.4} className="absolute -bottom-6 -right-4 md:-right-10 bg-verde-escuro text-creme px-7 py-6">
-            <div className="font-serif text-5xl leading-none mb-2">2007</div>
-            <div className="eyebrow text-bege-claro text-[0.62rem]">Especialista SBEM</div>
-          </Reveal>
         </div>
 
         <div className="md:col-span-6 md:col-start-7 md:pt-16">

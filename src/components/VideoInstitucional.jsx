@@ -66,12 +66,6 @@ function Player() {
         )}
       </div>
 
-      {!tocando && (
-        <Reveal delay={0.4} className="absolute z-20 -bottom-5 -left-2 md:-bottom-6 md:-left-10 bg-verde-escuro text-creme px-4 py-3 md:px-7 md:py-6">
-          <div className="font-serif text-2xl md:text-5xl leading-none mb-1 md:mb-2">45</div>
-          <div className="eyebrow text-bege-claro text-[0.55rem] md:text-[0.62rem]">segundos</div>
-        </Reveal>
-      )}
     </div>
   )
 }
@@ -94,7 +88,7 @@ export default function VideoInstitucional({ comTitulo = true }) {
           <Reveal className="eyebrow text-verde-oliva mb-6">Apresentação</Reveal>
           <LineReveal lines={['Conheça', 'a Dra.', 'Carolina']} className="uppercase text-section mb-8" />
           <Reveal delay={0.1} className="text-lg leading-relaxed text-verde-escuro/75 mb-10">
-            Em poucos segundos, a Dra. Carolina apresenta o olhar com que conduz cada tratamento.
+            Em 45 segundos, a Dra. Carolina apresenta o olhar com que conduz cada tratamento.
           </Reveal>
           <Reveal delay={0.2} className="text-[11px] tracking-[0.2em] uppercase text-verde-oliva">
             Endocrinologia e Metabologia
