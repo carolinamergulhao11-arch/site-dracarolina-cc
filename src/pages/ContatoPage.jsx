@@ -196,9 +196,9 @@ export default function ContatoPage() {
             </Reveal>
 
             <ImageReveal
-              src="/assets/images/dra-carolina-mergulhao-cafe-varanda-editorial.webp"
-              alt="Dra. Carolina Mergulhão, endocrinologista em São Paulo, segurando uma xícara de café"
-              pos="center 20%"
+              src="/assets/images/dra-carolina-mergulhao-camisa-branca-varanda-editorial.webp"
+              alt="Dra. Carolina Mergulhão, endocrinologista em São Paulo, na varanda do consultório"
+              pos="center 15%"
               className="hidden md:block aspect-[4/5]"
             />
           </div>

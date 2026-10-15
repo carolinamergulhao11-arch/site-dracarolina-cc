@@ -12,9 +12,9 @@ export default function Contato() {
     <section id="contato" className="bg-verde-escuro text-white py-28 md:py-40 overflow-hidden">
       <div className="max-w-[1400px] mx-auto px-6 md:px-10 grid md:grid-cols-12 gap-14 md:gap-8 items-center">
         <ImageReveal
-          src="/assets/images/dra-carolina-mergulhao-cafe-varanda-editorial.webp"
-          alt="Dra. Carolina Mergulhão, endocrinologista em São Paulo, segurando uma xícara de café"
-          pos="center 20%"
+          src="/assets/images/dra-carolina-mergulhao-camisa-branca-varanda-editorial.webp"
+          alt="Dra. Carolina Mergulhão, endocrinologista em São Paulo, na varanda do consultório"
+          pos="center 15%"
           className="md:col-span-5 aspect-[4/5]"
         />
 
