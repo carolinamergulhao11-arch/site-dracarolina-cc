@@ -46,7 +46,8 @@ function Player() {
               className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1.2s] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.03]"
             />
             <span className="absolute inset-0 bg-verde-escuro/0 transition-colors duration-500 group-hover:bg-verde-escuro/10" />
-            <span className="absolute inset-0 flex items-center justify-center">
+            {/* Botão à esquerda do centro: na capa, o rosto fica no terço direito */}
+            <span className="absolute inset-0 flex items-center justify-start pl-[14%] md:pl-[16%]">
               <span className="relative flex items-center justify-center w-20 h-20 md:w-28 md:h-28">
                 <span className="absolute inset-0 rounded-full bg-verde-escuro/30 animate-[ping_2.4s_cubic-bezier(0,0,0.2,1)_infinite] motion-reduce:hidden" />
                 <span className="relative flex items-center justify-center w-full h-full rounded-full bg-verde-escuro text-creme ring-1 ring-creme/40 shadow-[0_4px_14px_rgba(14,22,19,0.3)] transition-transform duration-500 group-hover:scale-110 group-focus-visible:ring-2 group-focus-visible:ring-creme">
